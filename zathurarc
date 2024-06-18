@@ -1,0 +1,47 @@
+set default-bg                  "#2D353b"
+set default-fg                  "#1E2326"
+set statusbar-fg                "#D3C6AA"
+set statusbar-bg                "#2D353b"
+set index-bg                    "#2D353b"
+set index-fg                    "#1E2326"
+set index-active-bg             "#81A1C1"
+set index-active-fg             "#1E2326"
+set inputbar-bg                 "#2D353b"
+set inputbar-fg                 "#D3C6AA"
+set notification-warning-bg     "#DBBC7F"
+set notification-warning-fg     "#1E2326"
+set highlight-color             "#81A1C1"
+set highlight-active-color      "#81A1C1"
+set completion-highlight-fg     "#BF616A"
+set completion-highlight-bg     "#2D353b"
+set completion-bg               "#2D353b"
+set completion-fg               "#1E2326"
+set notification-bg             "#1E2326"
+set notification-fg             "#D3C6AA"
+
+set recolor-darkcolor           "#D3C6AA"
+set recolor-lightcolor          "#2D353b"
+set recolor                     "true"
+
+set incremental-search          "true"
+set adjust-open                 "best-fit"
+
+set window-title-home-tilde     "true"
+set selection-clipboard         "clipboard"
+
+set statusbar-basename          "true"
+set statusbar-home-tilde        "true"
+set statusbar-h-padding         "5"
+set statusbar-v-padding         "5"
+
+set window-height               3000
+set window-width                3000
+
+set synctex-editor-command      "vim"
+
+set font                        "Agave Nerd Font 13"
+
+
+map <C-b> feedkeys ":bmark "
+map D set "first-page-column 1:1"
+map <C-d> set "first-page-column 1:2"

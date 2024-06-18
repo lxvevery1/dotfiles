@@ -1,0 +1,46 @@
+#### Custom alias ####
+
+alias calendar="/home/stanik/scripts/calendar/calendar"
+alias scrot="scrot ~/screenshots/%b%d::%H%M%S.png"
+
+# alias vim="/home/stanik/.vim9/bin/vim"
+
+# Colorful grep
+alias grep='grep --color=auto'
+
+# Colorful diff
+alias diff='diff --color=auto'
+
+alias ls="ls -hN --color=auto --group-directories-first"
+
+# Python pocket calculator [PPC]
+alias ppc='python -i "/home/stanik/.config/pythonrc"'
+
+alias ff='firefox'
+alias tg='telegram-desktop'
+
+alias pbcopy='xsel --clipboard --input'
+alias pbpaste='xsel --clipboard --output'
+
+alias hw='lf /home/stanik/programmer/++Programmer/3\ курс\ 2/'
+alias uni=hw
+alias unit='lf /home/stanik/UnityProj/'
+alias proj=unit
+
+alias minecraft='java -jar /home/stanik/Downloads/TLauncher.v10/TLauncher.jar'
+
+se() {
+    extensions_regex='\.(c|cpp|cs|py|conf|sh|toml)$|rc$'
+
+    du -a ~/scripts/ ~/.config/ | \
+    awk '{print $2}' | \
+    grep -vi cache | \
+    grep -vi logs | \
+    grep -vi VSCodium | \
+    grep -vi google-chrome | \
+    grep -vi libreoffice | \
+    grep -vi discord | \
+    grep -E "$extensions_regex" | \
+    fzf | \
+    xargs -o $EDITOR
+}

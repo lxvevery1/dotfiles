@@ -1,0 +1,21 @@
+import = [
+    "~/.config/alacritty/themes/themes/everforest_dark.toml"
+]
+
+[font]
+size = 15.0
+# normal = {family = "AgaveNerdFont", style = "Regular"}
+# bold = {family = "AgaveNerdFont", style = "Bold"}
+# italic = {family = "AgaveNerdFont", style = "Italic"}
+
+normal = {family = "scientifica", style = "Regular"}
+bold =   {family = "scientifica", style = "Regular"}
+italic = {family = "scientifica", style = "Italic"}
+
+[cursor]
+style = {shape = "Block", blinking = "off"}
+
+[keyboard]
+bindings = [
+    {key = "Return", mods = "Super|Shift", action = "SpawnNewInstance"}
+]

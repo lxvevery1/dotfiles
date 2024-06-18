@@ -1,0 +1,8 @@
+document.renameCurrentWord
+document.renameCurrentWord
+document.echoFiletype
+document.toggleColors
+document.toggleInlayHint
+document.toggleColors
+document.toggleCodeLens
+document.toggleInlayHint
