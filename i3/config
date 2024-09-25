@@ -68,7 +68,7 @@ bindsym $mod+q kill
 # start dmenu (a program launcher)
 # s=selected, n=other
 # bindsym $mod+d exec --no-startup-id dmenu_run -nb '#1E2326' -nf '#D3C6AA' -sb '#D3C6AA' -sf '#1E2326' -fn "Agave Nerd Font Mono"
-bindsym $mod+d exec --no-startup-id dmenu_run -nb '#1E2326' -nf '#D3C699' -sb '#D3C699' -sf '#1E2326' -fn "scientifica"
+bindsym $mod+d exec --no-startup-id dmenu_run -nb '#1E2326' -nf '#D3C699' -sb '#D3C699' -sf '#1E2326' -fn "scientifica" -f -i
 
 # A more modern dmenu replacement is rofi:
 # bindcode $mod+40 exec "rofi -modi drun,run -show drun"
@@ -110,7 +110,7 @@ bindsym $mod+v split v
 bindsym $mod+f fullscreen toggle
 
 # change container layout (stacked, tabbed, toggle split)
-bindsym $mod+s layout stacking
+# bindsym $mod+s layout stacking
 bindsym $mod+w layout tabbed
 bindsym $mod+e layout toggle split
 
@@ -155,10 +155,12 @@ bindsym $mod+9 workspace number $ws9
 bindsym $mod+0 workspace number $ws10
 
 # Python interpreter instance
-bindsym $mod+c exec "python /home/stanik/scripts/leviPyCalc.py"
+bindsym $mod+c exec "python /home/stanik/scripts/i3Instances/leviPyCalc.py"
+# bindsym $mod+c exec "python /home/stanik/scripts/newLeviInstance.py 'python -i -c 'import math''"
 # Vim note instance
-bindsym $mod+n exec "python /home/stanik/scripts/newVimNote.py"
-
+bindsym $mod+n exec "python /home/stanik/scripts/i3Instances/newVimNote.py"
+# Basilk (Task Manager) instance
+bindsym $mod+t exec "python /home/stanik/scripts/i3Instances/newBasilk.py"
 
 # move focused container to workspace
 bindsym $mod+Shift+1 move container to workspace number $ws1
@@ -175,30 +177,31 @@ bindsym $mod+Shift+0 move container to workspace number $ws10
 bindsym $mod+Shift+c reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+Shift+r restart
+# bindsym $mod+Shift+r exec "/home/stanik/.config/polybar/launch.sh"
 # exit i3 (logs you out of your X session)
-bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
+bindsym $mod+Shift+Escape exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
 
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
-        # These bindings trigger as soon as you enter the resize mode
+# These bindings trigger as soon as you enter the resize mode
 
-        # Pressing left will shrink the window’s width.
-        # Pressing right will grow the window’s width.
-        # Pressing up will shrink the window’s height.
-        # Pressing down will grow the window’s height.
-        bindsym j resize shrink width 10 px or 10 ppt
+# Pressing left will shrink the window’s width.
+# Pressing right will grow the window’s width.
+# Pressing up will shrink the window’s height.
+# Pressing down will grow the window’s height.
+    bindsym j resize shrink width 10 px or 10 ppt
         bindsym k resize grow height 10 px or 10 ppt
         bindsym l resize shrink height 10 px or 10 ppt
         bindsym semicolon resize grow width 10 px or 10 ppt
 
-        # same bindings, but for the arrow keys
+# same bindings, but for the arrow keys
         bindsym Left resize shrink width 10 px or 10 ppt
         bindsym Down resize grow height 10 px or 10 ppt
         bindsym Up resize shrink height 10 px or 10 ppt
         bindsym Right resize grow width 10 px or 10 ppt
 
-        # back to normal: Enter or Escape or $mod+r
+# back to normal: Enter or Escape or $mod+r
         bindsym Return mode "default"
         bindsym Escape mode "default"
         bindsym $mod+r mode "default"
@@ -208,32 +211,28 @@ bindsym $mod+r mode "resize"
 
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
-bar {
-    # status_command i3status -c ~/.config/i3status/i3status.conf
-    status_command i3status -c /home/stanik/.config/i3status/i3status.conf | /home/stanik/scripts/i3/i3lang.sh i3status
-    # font pango: Agave Nerd Font Bold 12
-    font pango: scientifica Regular 14
-	# bindsym button1 nop
-	# bindsym --release button3 exec --no-startup-id import /tmp/latest-screenshot.png
-	i3bar_command i3bar
-	separator_symbol " :: "
-
-    # Disabel bar workspaces scrolling
-    bindsym button4 nop
-    bindsym button5 nop
-
-	colors {
-        background #1E2326
-        statusline #D3C699
-        separator  #7A8478
-
-        focused_workspace  #9DA9A0 #D3C699 #000000
-        active_workspace   #333333 #5f676a #ffffff
-        inactive_workspace #333333 #222222 #888888
-        urgent_workspace   #2f343a #900000 #ffffff
-        binding_mode       #2f343a #900000 #ffffff
-    }
-}
+# bar {
+#     status_command i3status -c /home/stanik/.config/i3status/i3status.conf | /home/stanik/scripts/i3/i3lang.sh i3status
+#         font pango: monocraft Bold 10
+#         i3bar_command i3bar
+#         separator_symbol " :: "
+#
+# # Disabel bar workspaces scrolling
+#         bindsym button4 nop
+#         bindsym button5 nop
+#
+#         colors {
+#             background #1E2326
+#                 statusline #D3C699
+#                 separator  #7A8478
+#
+#                 focused_workspace  #9DA9A0 #D3C699 #000000
+#                 active_workspace   #333333 #5f676a #ffffff
+#                 inactive_workspace #333333 #222222 #888888
+#                 urgent_workspace   #2f343a #900000 #ffffff
+#                 binding_mode       #2f343a #900000 #ffffff
+#         }
+# }
 
 # Color
 # class                 border  backgr. text    indicator child_border
@@ -247,7 +246,7 @@ client.background       #000000
 
 # Assign Programs to Workspaces
 for_window [class="firefox"] move to workspace $ws2
-for_window [class="Thunar"] move to workspace $ws3
+# for_window [class="Thunar"] move to workspace $ws3
 for_window [class="unity"] move to workspace $ws4
 for_window [class="Spotify"] move to workspace $ws8
 for_window [class="TelegramDesktop"] move to workspace $ws9
@@ -278,4 +277,7 @@ exec_always picom
 exec_always python ~/scripts/autoLayout.py
 
 # Setup wallpaper
-# exec xwallpaper --stretch ~/Pictures/wallpaper/eva01_pixel_small
+# exec_always xwallpaper --stretch /home/stanik/Downloads/erdtree_elden_ring_comic21.png
+# /Pictures/wallpaper/eva01_pixel_small
+#
+exec_always --no-startup-id $HOME/.config/polybar/launch.sh

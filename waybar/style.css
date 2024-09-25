@@ -1,0 +1,150 @@
+@import "./mocha.css";
+
+* {
+    border: 1px;
+    font-family: 'JetBrainsMono Nerd Font';
+    font-size: 16px;
+    min-height: 0px;
+    font-weight: bold;
+}
+
+window > box {
+    background-color: rgba(0, 0, 0, 0);
+}
+
+window#waybar {
+    background-color: rgba(0, 0, 0, 0);
+    color: @text;
+}
+
+
+#workspaces {
+    color: @text;
+    border: 0px;
+    box-shadow: inherit;
+}
+
+#workspaces button {
+    border-radius: 0px;
+    color: @overlay0;
+    background-color: transparent;
+}
+
+#workspaces button:hover {
+    color: @peach;
+    background-color: @white;
+    opacity: 1.0;
+}
+
+#workspaces button.focused {
+    color: @blue;
+}
+
+#workspaces button.active {
+    color: @mauve;
+    font-style: italic;
+    border: 1px solid @mauve;
+    border-radius: 5px;
+}
+
+#workspaces button.urgent {
+    color: @red;
+}
+
+#tray,
+#mode,
+#window,
+#temperature,
+#temperature.critical,
+#custom-spotify,
+#custom-basilk,
+#clock,
+#network,
+#battery,
+#cpu,
+#memory,
+#pulseaudio,
+#disk,
+#custom-dot,
+#custom-vpnstatus,
+#workspaces,
+#custom-updates,
+#taskbar {
+    background-color: @base;
+    border-radius: 7px;
+    border: 2px solid @overlay1;
+    padding-left: 10px;
+    padding-right: 10px;
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+@keyframes blink {
+    to {
+        background-color: @red;
+        color: @text;
+    }
+}
+
+label:focus {
+
+}
+
+#custom-dot {
+    padding-top: 0px;
+    color: @yellow;
+}
+
+#custom-vpnstatus {
+    color: @sapphire;
+    font-size: 20px;
+}
+
+#custom-spotify {
+    color: @green;
+}
+
+#custom-basilk {
+    color: @pink;
+}
+
+#network {
+    color: @pink;
+}
+
+#memory {
+    color: @lavender;
+}
+
+#cpu {
+    color: @maroon;
+}
+
+#pulseaudio {
+    color: @yellow;
+}
+
+#pulseaudio.muted {
+    color: @overlay0;
+}
+
+#battery {
+    color: @green;
+}
+
+#battery.low {
+    color: @red;
+}
+
+#tray {
+}
+
+#disk {
+}
+
+#window {
+}
+
+#clock {
+    color: @rosewater;
+}

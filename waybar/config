@@ -1,0 +1,127 @@
+{
+    "position": "bottom",
+        "layer": "bottom",
+        "modules-left": ["hyprland/workspaces", "custom/basilk", "battery" ],
+        "modules-right": ["tray", "network", "cpu", "memory", "pulseaudio", "clock#date", "clock"],
+        "modules-center": [ "custom/spotify"],
+        // Modules configuration
+
+        "hyprland/workspaces": {
+            "disable-scroll": true,
+            "all-outputs": false,
+            "format": "{name} {icon}",
+            "format-icons": {
+                "1": "",
+                "2": "",
+                "3": "",
+                "4": "",
+                "8": "",
+                "9": "",
+                "urgent": "",
+                "default": ""
+            }
+        },
+        "hyprland/window": {
+            "max-length": 60,
+            "format": " {}",
+            "rewrite": {
+                " ":" Empty workspace"
+            },
+            "separate-outputs": true
+        },
+        "custom/dot":{
+            "format": ":",
+            "interval": 100,
+        },
+        "custom/spotify": {
+            "exec": "/home/stanik/scripts/waybar/music_panel.sh",
+            "format": " {}",
+            "on-click": "playerctl play-pause",
+            "on-scroll-up": "playerctl next",
+            "on-scroll-down": "playerctl previous",
+        },
+        "custom/basilk": {
+            "exec": "/home/stanik/scripts/waybar/basilk_panel.sh",
+            "format": " {}",
+            "on-click": "kitty -e basilk",
+        },
+        "disk": {
+            "interval": 30,
+            "format": " {percentage_used}%",
+            "path": "/"
+        },
+        "sway/mode": {
+            "format": "<span style=\"italic\">{}</span>"
+        },
+        "tray": {
+            "spacing": 10,
+        },
+        "clock#date": {
+            "timezone": "Europe/Moscow",
+            "format":" {:%d %b}",
+            "interval": 1,
+            "on-click": "zenity --calendar"
+        },
+        "clock": {
+            "timezone": "Europe/Moscow",
+            "format":"{:%H:%M:%S}",
+            "interval": 1,
+            "on-click": "zenity --calendar"
+        },
+        "cpu": {
+            "interval": 1,
+            "format": " {usage}%",
+        },
+        "battery": {
+            "format": "{icon} {capacity}% - {time}",
+            "format-icons": ["", "", "", "", ""],
+            "format-time": "{H}h{M}m",
+            "format-charging": "{icon} {capacity}% - {time}",
+            "format-full": "",
+            "interval": 10,
+            "states": {
+                "warning": 25,
+                "critical": 10
+            },
+            "tooltip": false,
+            "on-click": "2"
+        },
+        "memory": {
+            "interval": 1,
+            "format": " {used:}MiB",
+        },
+        "network": {
+            // "interface": "wlp2*", // (Optional) To force the use of this interface
+            "format-wifi": "  ({signalStrength}%)",
+            "format-ethernet": "󰈁",
+            "format-linked": "{󰄡 {ifname} (No IP)",
+            "format-disconnected": " ",
+            "format-alt": "{ifname}: {ipaddr}/{cidr}"
+        },
+        "pulseaudio/slider": {
+            "min": 0,
+            "max": 100,
+            "orientation": "horizontal"
+        },
+        "pulseaudio": {
+            "scroll-step": 5, // %, can be a float
+            "format": "{icon} {volume}%",
+            "format-muted": " ",
+            "format-icons": {
+                "default": ["", "", ""]
+            },
+            "on-click": "pavucontrol",
+            "on-click-middle": "pamixer -t"
+        },
+        "custom/updates": {
+            "format": "{icon} {}",
+            "return-type": "json",
+            "format-icons": {
+                "has-updates": "",
+                "updated": ""
+            },
+            "exec-if": "which waybar-module-pacman-updates",
+            "exec": "waybar-module-pacman-updates",
+            "on-click": "alacritty -e yay -Syyu",
+        }
+}
