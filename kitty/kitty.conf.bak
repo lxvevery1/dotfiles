@@ -19,9 +19,9 @@ map f4 launch --location=split
 #: individual font faces and even specify special fonts for particular
 #: characters.
 
-font_family     JetBrains Mono
-# font_family      MesloLGS NF
-# bold_font        auto
+font_family       scientifica
+# font_family     JetBrainsMono NFM Bold
+bold_font        scientifica bold
 # italic_font      auto
 # bold_italic_font auto
 
@@ -89,7 +89,7 @@ font_size 12
 
 #:     narrow_symbols codepoints [optionally the number of cells]
 
-# disable_ligatures never
+disable_ligatures always
 
 #: Choose how you want to handle multi-character ligatures. The
 #: default is to always render them. You can tell kitty to not render
@@ -110,6 +110,7 @@ font_size 12
 # font_features
 
 #: E.g. font_features none
+font_features none
 
 #: Choose exactly which OpenType features to enable or disable. This
 #: is useful as some fonts might have features worthwhile in a
@@ -159,6 +160,7 @@ font_size 12
 #: this font) breaks up monotony::
 
 #:     font_features TT2020StyleB-Regular -liga +calt
+# font_features JetBrainsMono -liga +calt
 
 #: In conjunction with force_ltr, you may want to disable Arabic
 #: shaping entirely, and only look at their isolated forms if they
@@ -209,7 +211,7 @@ font_size 12
 #:
 
 #: Cursor customization
-cursor #ff00ff
+# cursor #ff00ff
 
 #: Default cursor color. If set to the special value none the cursor
 #: will be rendered with a "reverse video" effect. It's color will be
@@ -767,7 +769,7 @@ window_padding_width 0
 #: this option. Using a value of center means the cell area will be
 #: placed centrally. A value of top-left means the padding will be
 #: only at the bottom and right edges.
-active_border_color #44ffff
+# active_border_color #44ffff
 
 #: The color for the border of the active window. Set this to none to
 #: not draw borders around the active window.
@@ -845,7 +847,7 @@ active_border_color #44ffff
 #: insensitive, from the set [0-9A-Z]. Specify your preference as a
 #: string of characters.
 
-# confirm_os_window_close -1
+confirm_os_window_close 0
 
 #: Ask for confirmation when closing an OS window or a tab with at
 #: least this number of kitty windows in it by window manager (e.g.
@@ -1030,7 +1032,7 @@ active_tab_font_style   bold
 
 #: The foreground and background colors.
 
-background_opacity 0.8
+background_opacity 0.95
 
 #: The opacity of the background. A number between zero and one, where
 #: one is opaque and zero is fully transparent. This will only work if
@@ -1357,7 +1359,7 @@ listen_on unix:/tmp/kitty
 #: in the path are expanded. Changing this option by reloading the
 #: config is not supported.
 
-# clipboard_control write-clipboard write-primary read-clipboard-ask read-primary-ask
+clipboard_control write-clipboard write-primary read-clipboard-ask read-primary-ask
 
 #: Allow programs running in kitty to read and write from the
 #: clipboard. You can control exactly which actions are allowed. The
@@ -1370,7 +1372,7 @@ listen_on unix:/tmp/kitty
 #: remote server via SSH can read your clipboard. See also
 #: clipboard_max_size.
 
-# clipboard_max_size 512
+clipboard_max_size 512
 
 #: The maximum size (in MB) of data from programs running in kitty
 #: that will be stored for writing to the system clipboard. A value of
@@ -1386,7 +1388,7 @@ listen_on unix:/tmp/kitty
 #: remote machine to read/write to the local filesystem, without
 #: permission.
 
-# allow_hyperlinks yes
+allow_hyperlinks yes
 
 #: Process hyperlink escape sequences (OSC 8). If disabled OSC 8
 #: escape sequences are ignored. Otherwise they become clickable
@@ -1642,7 +1644,7 @@ kitty_mod ctrl+shift
 #: the value of this option to alter all default shortcuts that use
 #: kitty_mod.
 
-# clear_all_shortcuts no
+clear_all_shortcuts yes
 
 #: Remove all shortcut definitions up to this point. Useful, for
 #: instance, to remove the default shortcuts.
@@ -1680,8 +1682,7 @@ map ctrl+1 launch_tab nvim
 
 #: Copy to clipboard
 
-# map kitty_mod+c copy_to_clipboard
-# map cmd+c       copy_to_clipboard
+map kitty_mod+c copy_to_clipboard
 
 #::  There is also a copy_or_interrupt action that can be optionally
 #::  mapped to Ctrl+C. It will copy only if there is a selection and
@@ -1691,8 +1692,7 @@ map ctrl+1 launch_tab nvim
 
 #: Paste from clipboard
 
-# map kitty_mod+v paste_from_clipboard
-# map cmd+v       paste_from_clipboard
+map kitty_mod+v paste_from_clipboard
 
 #: Paste from selection
 
@@ -2310,3 +2310,9 @@ map cmd+shift+enter new_os_window_with_cwd
 #:
 
 include current-theme.conf
+
+
+# BEGIN_KITTY_THEME
+# Catppuccin-Mocha
+include current-theme.conf
+# END_KITTY_THEME

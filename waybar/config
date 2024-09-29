@@ -88,7 +88,7 @@
         },
         "memory": {
             "interval": 1,
-            "format": " {used:}MiB",
+            "format": "RAM {used:}MiB",
         },
         "network": {
             // "interface": "wlp2*", // (Optional) To force the use of this interface

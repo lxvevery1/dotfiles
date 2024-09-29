@@ -1,0 +1,26 @@
+@define-color rosewater #f2e5bc; /* Lightest tan */
+@define-color flamingo #d5c4a1; /* Light tan */
+@define-color pink #d3869b; /* Soft pink */
+@define-color mauve #b16286; /* Darker pink */
+@define-color red #cc241d; /* Dark red */
+@define-color maroon #9d0006; /* Darker red */
+@define-color peach #d65d0e; /* Orange */
+@define-color yellow #d79921; /* Yellow */
+@define-color green #98971a; /* Olive green */
+@define-color teal #689d6a; /* Dark green */
+@define-color sky #83a598; /* Teal */
+@define-color sapphire #458588; /* Dark teal */
+@define-color blue #458588; /* Dark blue */
+@define-color lavender #b16286; /* Darker pink */
+@define-color text #ebdbb2; /* Light tan */
+@define-color subtext1 #d5c4a1; /* Light tan */
+@define-color subtext0 #bdae93; /* Medium tan */
+@define-color overlay2 #a89984; /* Dark tan */
+@define-color overlay1 #928374; /* Darker tan */
+@define-color overlay0 #7c6f64; /* Darkest tan */
+@define-color surface2 #504945; /* Dark gray */
+@define-color surface1 #3c3836; /* Darker gray */
+@define-color surface0 #282828; /* Darkest gray */
+@define-color base #1d2021; /* Almost black */
+@define-color mantle #1d2021; /* Almost black */
+@define-color crust #1d2021; /* Almost black */

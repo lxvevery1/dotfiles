@@ -11,12 +11,11 @@ horizontal_padding = 8
 text_icon_padding = 0
 frame_width = 2
 
-frame_color = "#f5c2e7"
 separator_color = frame
 
 sort = yes
 idle_threshold = 120
-font = monospace 10
+font = scientifica 14
 line_height = 0
 markup = full
 alignment = left
@@ -41,15 +40,18 @@ class = Dunst
 
 corner_radius = 10
 timeout = 5
+
+
+frame_color = "#FAB387"
+separator_color = "#d5c4a1"
 [urgency_low]
-background = "#1E1E2E"
-foreground = "#CDD6F4"
+background = "#3c3836"
+foreground = "#665c54"
 
 [urgency_normal]
-background = "#1E1E2E"
-foreground = "#CDD6F4"
+background = "#504945"
+foreground = "#d5c4a1"
 
 [urgency_critical]
-background = "#1E1E2E"
-foreground = "#CDD6F4"
-frame_color = "#FAB387"
+background = "#fb4934"
+foreground = "#ebdbb2"
