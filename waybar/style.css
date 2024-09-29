@@ -1,11 +1,11 @@
-@import "./mocha.css";
+@import "./gruvbox.css";
 
 * {
     border: 1px;
-    font-family: 'JetBrainsMono Nerd Font';
-    font-size: 16px;
+    font-family: 'monocraft';
+    font-size: 14px;
     min-height: 0px;
-    font-weight: bold;
+    font-weight: normal;
 }
 
 window > box {
@@ -41,10 +41,11 @@ window#waybar {
 }
 
 #workspaces button.active {
-    color: @mauve;
+    color: @yellow;
     font-style: italic;
-    border: 1px solid @mauve;
+    border: 1px solid @yellow;
     border-radius: 5px;
+    font-size: 16px;
 }
 
 #workspaces button.urgent {
@@ -117,11 +118,11 @@ label:focus {
 }
 
 #cpu {
-    color: @maroon;
+    color: @subtext1;
 }
 
 #pulseaudio {
-    color: @yellow;
+    color: @teal;
 }
 
 #pulseaudio.muted {
@@ -147,4 +148,8 @@ label:focus {
 
 #clock {
     color: @rosewater;
+}
+
+#modules-right {
+    background: @base;
 }

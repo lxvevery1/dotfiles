@@ -3,7 +3,7 @@ import = [
 ]
 
 [font]
-size = 12.0
+size = 15.0
 
 # normal = {family = "AgaveNerdFont", style = "Regular"}
 # bold = {family = "AgaveNerdFont", style = "Bold"}
@@ -13,17 +13,17 @@ size = 12.0
 # bold =   {family = "CozetteVector", style = "Regular"}
 # italic = {family = "monocraft", style = "Italic"}
 
-# normal = {family = "scientifica", style = "Regular"}
-# bold =   {family = "scientifica", style = "Regular"}
-# italic = {family = "scientifica", style = "Italic"}
+normal = {family = "scientifica", style = "Regular"}
+bold =   {family = "scientifica", style = "Regular"}
+italic = {family = "scientifica", style = "Italic"}
 
 # normal = {family = "creep2", style = "Regular"}
 # bold =   {family = "creep2", style = "Bold"}
 # italic = {family = "creep2", style = "Italic"}
 
-normal = {family = "JetBrainsMonoNerdFont", style = "Bold"}
-bold =   {family = "JetBrainsMonoNerdFont", style = "ExtraBold"}
-italic = {family = "JetBrainsMonoNerdFont", style = "Italic"}
+# normal = {family = "JetBrainsMonoNerdFont", style = "Bold"}
+# bold =   {family = "JetBrainsMonoNerdFont", style = "ExtraBold"}
+# italic = {family = "JetBrainsMonoNerdFont", style = "Italic"}
 
 [cursor]
 style = {shape = "Block", blinking = "off"}
