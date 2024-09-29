@@ -90,6 +90,14 @@ return {
                 lspconfig["clangd"].setup({
                     capabilities = capabilities,
                     filetypes = { "c", "cpp", "h", "hpp", "objc", "objcpp", "cuda", "proto" },
+                    settings = {
+                        clangd = {
+                            fallbackFlags = { '-std=c++20' },
+                            formatting = {
+                                style = "file"
+                            },
+                        },
+                    },
                 })
             end,
             ["omnisharp"] = function()
@@ -149,12 +157,12 @@ return {
                     end
                 end
 
-                -- Создание автокоманды
+                -- Auto reload on save
                 vim.api.nvim_create_autocmd(
-                {'FocusGained', 'BufEnter', 'CursorHold', 'CursorHoldI'}, -- События
+                {'FocusGained', 'BufEnter', 'CursorHold', 'CursorHoldI'},
                 {
-                    pattern = '*', -- Шаблон для файлов (здесь - все файлы)
-                    callback = checktime_if_not_command_mode -- Функция обратного вызова
+                    pattern = '*',
+                    callback = checktime_if_not_command_mode
                 })
             end,
             ["lua_ls"] = function()

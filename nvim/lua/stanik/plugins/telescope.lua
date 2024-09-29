@@ -48,6 +48,7 @@ return {
         keymap.set("n", "<leader>ft", "<cmd>TodoTelescope<cr>", { desc = "Find todos" })
         keymap.set("n", "<leader>fe", "<cmd>Telescope diagnostics<cr>", { desc = "List of warnings/errors in project" })
         keymap.set("n", "<leader>fw", "<cmd>Telescope diagnostics<cr>", { desc = "List of warnings/errors in project" })
-        keymap.set("n", "<leader>fp", "<cmd>lua require'telescope'.extensions.projects.projects{}<cr>", { desc = "Lift all projects" })
+        -- if using nvim-projects
+        -- keymap.set("n", "<leader>fp", "<cmd>lua require'telescope'.extensions.projects.projects{}<cr>", { desc = "List all projects" })
     end,
 }
