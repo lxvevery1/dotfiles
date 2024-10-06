@@ -62,7 +62,7 @@ return {
                 opts.desc = "Show documentation for what is under cursor"
                 keymap.set("n", "K", vim.lsp.buf.hover, opts) -- show documentation for what is under cursor
 
-                opts.desc = "LSP Restart"
+                opts.desc = "Restart LSP"
                 keymap.set("n", "<leader>lr", ":LspRestart<CR>", opts) -- mapping to restart lsp if necessary
             end,
         })
@@ -72,7 +72,7 @@ return {
 
         -- Change the Diagnostic symbols in the sign column (gutter)
         -- (not in youtube nvim video)
-        local signs = { Error = " ", Warn = " ", Hint = "󰠠 ", Info = " " }
+        local signs = { Error = " ", Warn = "⚠", Hint = "󰠠 ", Info = " " }
         for type, icon in pairs(signs) do
             local hl = "DiagnosticSign" .. type
             vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = "" })
@@ -89,15 +89,7 @@ return {
                 -- configure clangd language server
                 lspconfig["clangd"].setup({
                     capabilities = capabilities,
-                    filetypes = { "c", "cpp", "h", "hpp", "objc", "objcpp", "cuda", "proto" },
-                    settings = {
-                        clangd = {
-                            fallbackFlags = { '-std=c++20' },
-                            formatting = {
-                                style = "file"
-                            },
-                        },
-                    },
+                    filetypes = { "c", "cpp", "h", "hpp", "objc", "objcpp", "cuda", "proto", "ipp" },
                 })
             end,
             ["omnisharp"] = function()
@@ -108,7 +100,7 @@ return {
                     cmd = {
                         "dotnet", vim.fn.stdpath "data" .. "/mason/packages/omnisharp/libexec/OmniSharp.dll"
                     },
-                    root_dir = lspconfig.util.root_pattern("*.csproj"),
+                    root_dir = lspconfig.util.root_pattern("*.sln"),
                     capabilities = {
                         didChangeWatchedFiles = {
                             dynamicRegistration = true,
@@ -157,12 +149,12 @@ return {
                     end
                 end
 
-                -- Auto reload on save
+                -- Создание автокоманды
                 vim.api.nvim_create_autocmd(
-                {'FocusGained', 'BufEnter', 'CursorHold', 'CursorHoldI'},
+                {'FocusGained', 'BufEnter', 'CursorHold', 'CursorHoldI'}, -- События
                 {
-                    pattern = '*',
-                    callback = checktime_if_not_command_mode
+                    pattern = '*', -- Шаблон для файлов (здесь - все файлы)
+                    callback = checktime_if_not_command_mode -- Функция обратного вызова
                 })
             end,
             ["lua_ls"] = function()

@@ -28,11 +28,21 @@ nnoremap <F4>       :set hlsearch!<CR>
 nnoremap <C-S-E> <C-E>j
 nnoremap <C-S-Y> <C-Y>k
 
+" move cursor with j&k
+nmap <C-J> <C-E>
+nmap <C-K> <C-Y>
+
 " Use ctrl-[hjkl] to select the active split!
 nnoremap <silent> <c-k> :wincmd k<CR>
 nnoremap <silent> <c-j> :wincmd j<CR>
 nnoremap <silent> <c-h> :wincmd h<CR>
 nnoremap <silent> <c-l> :wincmd l<CR>
+
+" Reassigning the d-family commands to delete without saving to a register
+"nnoremap dd "_dd
+"nnoremap d "_d
+"nnoremap D "_D
+
 
 """""""
 " Let "
@@ -45,6 +55,7 @@ let &t_EI="\e[2 q"
 " Set space key as <leader> key
 let mapleader=" "
 
+
 """""""""""""
 " Autogroup "
 """""""""""""
@@ -54,10 +65,6 @@ augroup myCmds
     au!
     autocmd VimEnter * silent !echo -ne "\e[2 q"
 augroup END
-
-"""""""""""""
-" Functions "
-"""""""""""""
 
 " Text formating (removing empty space at the EOL)
 function! TrimWhitespace()
@@ -96,15 +103,12 @@ function! Preserve(command)
 endfunction
 
 " Re-indent the whole buffer.
-"function! Indent()
-"    call Preserve('normal gg=G')
-"endfunction
-
-
-autocmd BufWritePre * :call TrimWhitespace()
-
+function! Indent()
+    call Preserve('normal gg=G')
+endfunction
+"autocmd BufWritePre * :call TrimWhitespace()
 " Indent on save hook
-" autocmd BufWritePre <buffer> call Indent()
+"autocmd BufWritePre <buffer> call Indent()
 
 
 """"""""""""
@@ -114,7 +118,6 @@ autocmd BufWritePre * :call TrimWhitespace()
 " Copy current file path to the buffer
 command! CopyFilePath let @+ = expand('%:p')
 
-cnoreabbrev W w
 
 """"""""
 " Sets "
@@ -158,9 +161,6 @@ set ttyfast
 " Make vim use general clipboard
 set clipboard=unnamedplus
 set whichwrap+=h,l
-
-" Wayland clipboard
-xnoremap <silent> <leader>y y:call system("wl-copy --trim-newline", @*)<cr>:call system("wl-copy -p --trim-newline", @*)<cr>
 
 
 """"""""""""""

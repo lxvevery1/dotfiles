@@ -41,16 +41,28 @@ class = Dunst
 corner_radius = 10
 timeout = 5
 
+# Message format:
+# %a - appname
+# %s - summary
+# %b - body
+# %i - iconname (with path)
+# %I - iconname (without path)
+# %p - progress value (if set)
+# %n - progress value no extra characters
+# %% - literal %
+
+# make body grey
+format = "<b>%s</b>\n%b"
 
 frame_color = "#FAB387"
 separator_color = "#d5c4a1"
 [urgency_low]
 background = "#3c3836"
-foreground = "#665c54"
+foreground = "#ebdbb2"
 
 [urgency_normal]
 background = "#504945"
-foreground = "#d5c4a1"
+foreground = "#ebdbb2"
 
 [urgency_critical]
 background = "#fb4934"
