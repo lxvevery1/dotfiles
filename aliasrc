@@ -1,1 +1,70 @@
-/home/stanik/.config/aliasrc
+#### Sources #####
+
+source ~/.config/baseconverter
+
+
+#### Custom alias ####
+
+alias calendar="/home/stanik/scripts/calendar/calendar"
+alias scrot="scrot ~/screenshots/%b%d::%H%M%S.png"
+
+# Colorful grep
+alias grep='grep --color=auto'
+
+alias ls="ls -hN --color=auto --group-directories-first"
+
+# Python pocket calculator [PPC]
+alias ppc='python -i "/home/stanik/.config/pythonrc"'
+
+alias ff='firefox'
+alias tg='telegram-desktop'
+
+alias pbcopy='xsel --clipboard --input'
+alias pbpaste='xsel --clipboard --output'
+
+alias hw='y /home/stanik/programmer/++Programmer/4_1'
+alias uni=hw
+alias unit='y /home/stanik/UnityProj/'
+alias proj=unit
+
+alias minecraft='java -jar /home/stanik/Downloads/TLauncher.v10/TLauncher.jar'
+
+# Fan modes
+alias fan-turbo='sudo sh -c "echo 1 >> /sys/devices/platform/asus-nb-wmi/fan_boost_mode" && \
+                sudo sh -c "echo 1 >> /sys/devices/platform/asus-nb-wmi/throttle_thermal_policy"'
+alias fan-performance='sudo sh -c "echo 0 >> /sys/devices/platform/asus-nb-wmi/fan_boost_mode" && \
+                sudo sh -c "echo 0 >> /sys/devices/platform/asus-nb-wmi/throttle_thermal_policy"'
+alias fan-silent='sudo sh -c "echo 2 >> /sys/devices/platform/asus-nb-wmi/fan_boost_mode" && \
+                sudo sh -c "echo 2 >> /sys/devices/platform/asus-nb-wmi/throttle_thermal_policy"'
+alias fan-curr-mode='cat /sys/devices/platform/asus-nb-wmi/fan_boost_mode'
+
+# Make F1-F12 work without fn mod
+alias f_no_fn='echo 2 | sudo tee /sys/module/hid_apple/parameters/fnmode'
+
+# alias prettyFlyCpToGit='cp -r /home/stanik/UnityProj/PrettyFly/Assets/Scripts /home/stanik/gitRepos/PrettyFly/'
+alias prettyFlyCpToGit='cp -r /home/stanik/UnityProj/PrettyFly/* /home/stanik/gitRepos/PrettyFly/'
+alias prettyFlyPath='cd /home/stanik/UnityProj/PrettyFly/Assets/Scripts'
+
+#
+# alias goodbye-dpi='ciadpi -s 2 -d 2 -i 127.0.0.1 -p 1080'
+alias goodbye-dpi='ciadpi -i 127.0.0.1 -p 1080'
+alias goodbye-dpi_14_10='ciadpi -i 127.0.0.1 -p 1080 -s1 -q1 -Y -Ar -s5 -o1+s -At -f-1 -r1+s -As -s1 -o1 +s -s-1 -An'
+alias conf='cd /home/stanik/.config'
+alias c='clear'
+alias lf='y'
+
+se() {
+    extensions_regex='\.(c|cpp|cs|py|conf|sh|toml|lua|vim)$|rc$'
+
+    du -a ~/scripts/ ~/.config/ | \
+    awk '{print $2}' | \
+    grep -vi cache | \
+    grep -vi logs | \
+    grep -vi VSCodium | \
+    grep -vi google-chrome | \
+    grep -vi libreoffice | \
+    grep -vi discord | \
+    grep -E "$extensions_regex" | \
+    fzf --query=$1 | \
+    xargs -o $EDITOR
+}
