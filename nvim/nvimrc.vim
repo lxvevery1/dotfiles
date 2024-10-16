@@ -55,6 +55,13 @@ augroup myCmds
     autocmd VimEnter * silent !echo -ne "\e[2 q"
 augroup END
 
+" cursor line
+augroup cursorline
+  autocmd!
+  autocmd WinEnter,BufEnter * setlocal cursorline cursorcolumn
+  autocmd WinLeave,BufLeave * setlocal nocursorline nocursorcolumn
+augroup END
+
 """""""""""""
 " Functions "
 """""""""""""
@@ -114,7 +121,13 @@ autocmd BufWritePre * :call TrimWhitespace()
 " Copy current file path to the buffer
 command! CopyFilePath let @+ = expand('%:p')
 
-cnoreabbrev W w
+" Save and quit
+command! W w
+command! Q q
+command! Wq wq
+command! Wa wa
+command! WQ wq
+
 
 """"""""
 " Sets "

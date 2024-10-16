@@ -1,0 +1,47 @@
+set default-bg                  "#1E1E2E"  # base
+set default-fg                  "#CDD6F4"  # text
+set statusbar-fg                "#1E1E2E"  # base
+set statusbar-bg                "#A6ADC8"  # subtext0
+set index-bg                    "#1E1E2E"  # base
+set index-fg                    "#CDD6F4"  # text
+set index-active-bg             "#89B4FA"  # blue
+set index-active-fg             "#1E1E2E"  # base
+set inputbar-bg                 "#1E1E2E"  # base
+set inputbar-fg                 "#CDD6F4"  # text
+set notification-warning-bg     "#F9E2AF"  # yellow
+set notification-warning-fg     "#1E1E2E"  # base
+set highlight-color             "#89B4FA"  # blue
+set highlight-active-color      "#89B4FA"  # blue
+set completion-highlight-fg     "#F38BA8"  # red
+set completion-highlight-bg     "#1E1E2E"  # base
+set completion-bg               "#1E1E2E"  # base
+set completion-fg               "#CDD6F4"  # text
+set notification-bg             "#1E1E2E"  # base
+set notification-fg             "#CDD6F4"  # text
+
+set recolor-darkcolor           "#CDD6F4"  # text
+set recolor-lightcolor          "#1E1E2E"  # base
+set recolor                     "true"
+
+set incremental-search          "true"
+set adjust-open                 "best-fit"
+
+set window-title-home-tilde     "true"
+set selection-clipboard         "clipboard"
+
+set statusbar-basename          "true"
+set statusbar-home-tilde        "true"
+set statusbar-h-padding         "5"
+set statusbar-v-padding         "5"
+
+set window-height               3000
+set window-width                3000
+
+set synctex-editor-command      "vim"
+
+set font                        "JetBrainsMonoNerdFont"
+
+
+map <C-b> feedkeys ":bmark "
+map D set "first-page-column 1:1"
+map <C-d> set "first-page-column 1:2"

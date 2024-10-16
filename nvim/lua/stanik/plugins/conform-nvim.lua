@@ -10,6 +10,8 @@ return {
                 rust = { "rustfmt", lsp_format = "fallback" },
                 xml = { "xmllint", lsp_format = "fallback" },
                 cs = { "csharpier", lsp_format = "fallback" },
+                c = { "clang-format", lsp_format = "fallback" },
+                cpp = { "clang-format", lsp_format = "fallback" },
             },
         })
 
