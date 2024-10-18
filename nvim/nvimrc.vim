@@ -34,6 +34,12 @@ nnoremap <silent> <c-j> :wincmd j<CR>
 nnoremap <silent> <c-h> :wincmd h<CR>
 nnoremap <silent> <c-l> :wincmd l<CR>
 
+" Reassigning the d-family commands to delete without saving to a register
+"nnoremap dd "_dd
+"nnoremap d "_d
+"nnoremap D "_D
+
+
 """""""
 " Let "
 """""""
@@ -53,13 +59,6 @@ let mapleader=" "
 augroup myCmds
     au!
     autocmd VimEnter * silent !echo -ne "\e[2 q"
-augroup END
-
-" cursor line
-augroup cursorline
-  autocmd!
-  autocmd WinEnter,BufEnter * setlocal cursorline cursorcolumn
-  autocmd WinLeave,BufLeave * setlocal nocursorline nocursorcolumn
 augroup END
 
 """""""""""""
@@ -121,13 +120,7 @@ autocmd BufWritePre * :call TrimWhitespace()
 " Copy current file path to the buffer
 command! CopyFilePath let @+ = expand('%:p')
 
-" Save and quit
-command! W w
-command! Q q
-command! Wq wq
-command! Wa wa
-command! WQ wq
-
+cnoreabbrev W w
 
 """"""""
 " Sets "

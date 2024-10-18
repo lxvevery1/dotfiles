@@ -4,7 +4,7 @@ return {
     config = function()
         require('nvim-cursorline').setup {
             cursorline = {
-                enable = true,
+                enable = false, -- this is causing really bad performance
                 timeout = 10,
                 number = false,
             },
