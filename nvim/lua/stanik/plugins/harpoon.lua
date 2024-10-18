@@ -1,9 +1,9 @@
 return {
     "ThePrimeagen/harpoon",
     branch = "harpoon2",
-    requires = { {"nvim-lua/plenary.nvim"} },
+    requires = { { "nvim-lua/plenary.nvim" } },
 
-    config = function ()
+    config = function()
         local harpoon = require("harpoon")
 
         -- REQUIRED
@@ -39,7 +39,7 @@ return {
             }):find()
         end
 
-        vim.keymap.set("n", "<C-S-H>", function() toggle_telescope(harpoon:list()) end,
-        { desc = "Open harpoon window" })
+        vim.keymap.set("n", "<leader>hh", function() toggle_telescope(harpoon:list()) end,
+            { desc = "Open harpoon window" })
     end
 }

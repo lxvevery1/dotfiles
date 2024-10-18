@@ -4,7 +4,7 @@ return {
     dependencies = {
         "hrsh7th/cmp-nvim-lsp",
         { "antosha417/nvim-lsp-file-operations", config = true },
-        { "folke/neodev.nvim", opts = {} },
+        { "folke/neodev.nvim",                   opts = {} },
     },
     config = function()
         -- import lspconfig plugin
@@ -62,17 +62,43 @@ return {
                 opts.desc = "Show documentation for what is under cursor"
                 keymap.set("n", "K", vim.lsp.buf.hover, opts) -- show documentation for what is under cursor
 
-                opts.desc = "LSP Restart"
+                opts.desc = "Restart LSP"
                 keymap.set("n", "<leader>lr", ":LspRestart<CR>", opts) -- mapping to restart lsp if necessary
             end,
         })
+
+
+        -- Borders setup
+        vim.cmd [[autocmd! ColorScheme * highlight NormalFloat guibg=#1f2335]]
+        vim.cmd [[autocmd! ColorScheme * highlight FloatBorder guifg=white guibg=#1f2335]]
+
+        vim.api.nvim_set_hl(0, 'FloatBorder', { link = 'Normal' })
+        local hl_name = "FloatBorder"
+        local border = {
+            { "╭", hl_name },
+            { "─", hl_name },
+            { "╮", hl_name },
+            { "│", hl_name },
+            { "╯", hl_name },
+            { "─", hl_name },
+            { "╰", hl_name },
+            { "│", hl_name },
+        }
+
+        -- To instead override globally
+        local orig_util_open_floating_preview = vim.lsp.util.open_floating_preview
+        function vim.lsp.util.open_floating_preview(contents, syntax, opts, ...)
+            opts = opts or {}
+            opts.border = opts.border or border
+            return orig_util_open_floating_preview(contents, syntax, opts, ...)
+        end
 
         -- used to enable autocompletion (assign to every lsp server config)
         local capabilities = cmp_nvim_lsp.default_capabilities()
 
         -- Change the Diagnostic symbols in the sign column (gutter)
         -- (not in youtube nvim video)
-        local signs = { Error = " ", Warn = " ", Hint = "󰠠 ", Info = " " }
+        local signs = { Error = " ", Warn = "⚠", Hint = "󰠠 ", Info = " " }
         for type, icon in pairs(signs) do
             local hl = "DiagnosticSign" .. type
             vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = "" })
@@ -89,15 +115,7 @@ return {
                 -- configure clangd language server
                 lspconfig["clangd"].setup({
                     capabilities = capabilities,
-                    filetypes = { "c", "cpp", "h", "hpp", "objc", "objcpp", "cuda", "proto" },
-                    settings = {
-                        clangd = {
-                            fallbackFlags = { '-std=c++20' },
-                            formatting = {
-                                style = "file"
-                            },
-                        },
-                    },
+                    filetypes = { "c", "cpp", "h", "hpp", "objc", "objcpp", "cuda", "proto", "ipp" },
                 })
             end,
             ["omnisharp"] = function()
@@ -108,7 +126,7 @@ return {
                     cmd = {
                         "dotnet", vim.fn.stdpath "data" .. "/mason/packages/omnisharp/libexec/OmniSharp.dll"
                     },
-                    root_dir = lspconfig.util.root_pattern("*.csproj"),
+                    root_dir = lspconfig.util.root_pattern("*.sln", "*.csproj"),
                     capabilities = {
                         didChangeWatchedFiles = {
                             dynamicRegistration = true,
@@ -157,18 +175,19 @@ return {
                     end
                 end
 
-                -- Auto reload on save
+                -- Создание автокоманды
                 vim.api.nvim_create_autocmd(
-                {'FocusGained', 'BufEnter', 'CursorHold', 'CursorHoldI'},
-                {
-                    pattern = '*',
-                    callback = checktime_if_not_command_mode
-                })
+                    { 'FocusGained', 'BufEnter', 'CursorHold', 'CursorHoldI' }, -- События
+                    {
+                        pattern = '*',                                          -- Шаблон для файлов (здесь - все файлы)
+                        callback = checktime_if_not_command_mode                -- Функция обратного вызова
+                    })
             end,
             ["lua_ls"] = function()
                 -- configure lua server (with special settings)
                 lspconfig["lua_ls"].setup({
                     capabilities = capabilities,
+                    filetypes = { "lua" },
                     settings = {
                         Lua = {
                             -- make the language server recognize "vim" global
@@ -185,10 +204,11 @@ return {
             ["rust_analyzer"] = function()
                 lspconfig["rust_analyzer"].setup({
                     capabilities = capabilities,
+                    filetypes = { "rs" },
                     settings = {
                         ['rust_analyzer'] = {
                             diagnostics = {
-                                enable = true;
+                                enable = true,
                             },
                         },
                     },

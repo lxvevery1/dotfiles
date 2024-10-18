@@ -1,0 +1,53 @@
+2to8() {
+    baseconv $1 2 8
+}
+
+2to10() {
+    baseconv $1 2 10
+}
+
+2to16() {
+    baseconv $1 2 16
+}
+
+
+
+8to2() {
+    baseconv $1 8 2
+}
+
+8to10() {
+    baseconv $1 8 10
+}
+
+8to16() {
+    baseconv $1 8 16
+}
+
+
+
+10to2() {
+    baseconv $1 10 2
+}
+
+10to8() {
+    baseconv $1 10 8
+}
+
+10to16() {
+    baseconv $1 10 16
+}
+
+
+
+16to2() {
+    baseconv $1 16 2
+}
+
+16to8() {
+    baseconv $1 16 8
+}
+
+16to10() {
+    baseconv $1 16 10
+}

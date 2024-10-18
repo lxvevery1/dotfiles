@@ -17,6 +17,7 @@
                 "4": "",
                 "8": "",
                 "9": "",
+                "10": "󱁤",
                 "urgent": "",
                 "default": ""
             }
@@ -76,7 +77,7 @@
             "format": "{icon} {capacity}% - {time}",
             "format-icons": ["", "", "", "", ""],
             "format-time": "{H}h{M}m",
-            "format-charging": "{icon} {capacity}% - {time}",
+            "format-charging": " {icon} {capacity}% - {time}",
             "format-full": "",
             "interval": 10,
             "states": {
