@@ -2,25 +2,13 @@
     "position": "bottom",
         "layer": "bottom",
         "modules-left": ["hyprland/workspaces", "custom/basilk", "battery" ],
-        "modules-right": ["tray", "network", "cpu", "memory", "pulseaudio", "clock#date", "clock"],
+        "modules-right": ["tray", "network", "cpu",  "temperature", "memory", "pulseaudio", "clock#date", "clock"],
         "modules-center": [ "custom/spotify"],
-        // Modules configuration
 
         "hyprland/workspaces": {
             "disable-scroll": true,
             "all-outputs": false,
-            "format": "{name} {icon}",
-            "format-icons": {
-                "1": "",
-                "2": "",
-                "3": "",
-                "4": "",
-                "8": "",
-                "9": "",
-                "10": "󱁤",
-                "urgent": "",
-                "default": ""
-            }
+            "format": "{name}"
         },
         "hyprland/window": {
             "max-length": 60,
@@ -32,19 +20,19 @@
         },
         "custom/dot":{
             "format": ":",
-            "interval": 100,
+            "interval": 100
         },
         "custom/spotify": {
             "exec": "/home/stanik/scripts/waybar/music_panel.sh",
             "format": " {}",
             "on-click": "playerctl play-pause",
             "on-scroll-up": "playerctl next",
-            "on-scroll-down": "playerctl previous",
+            "on-scroll-down": "playerctl previous"
         },
         "custom/basilk": {
             "exec": "/home/stanik/scripts/waybar/basilk_panel.sh",
             "format": " {}",
-            "on-click": "kitty -e basilk",
+            "on-click": "kitty -e basilk"
         },
         "disk": {
             "interval": 30,
@@ -55,7 +43,7 @@
             "format": "<span style=\"italic\">{}</span>"
         },
         "tray": {
-            "spacing": 10,
+            "spacing": 10
         },
         "clock#date": {
             "timezone": "Europe/Moscow",
@@ -72,6 +60,15 @@
         "cpu": {
             "interval": 1,
             "format": " {usage}%",
+            "states": {
+                "warning": 50,
+                "critical": 80
+            }
+        },
+        "temperature": {
+            "critical-threshold": 80,
+            "format-critical": " {temperatureC}°C",
+            "format": " {temperatureC}°C"
         },
         "battery": {
             "format": "{icon} {capacity}% - {time}",
@@ -90,6 +87,10 @@
         "memory": {
             "interval": 1,
             "format": "RAM {used:}MiB",
+            "states": {
+                "warning": 75,
+                "critical": 90
+            }
         },
         "network": {
             // "interface": "wlp2*", // (Optional) To force the use of this interface
@@ -112,7 +113,13 @@
                 "default": ["", "", ""]
             },
             "on-click": "pavucontrol",
-            "on-click-middle": "pamixer -t"
+            "on-click-middle": "pamixer -t",
+            "states": {
+                "normal": 80,
+                "warning": 99,
+                "critical": 999
+            }
+
         },
         "custom/updates": {
             "format": "{icon} {}",
@@ -123,6 +130,6 @@
             },
             "exec-if": "which waybar-module-pacman-updates",
             "exec": "waybar-module-pacman-updates",
-            "on-click": "alacritty -e yay -Syyu",
+            "on-click": "alacritty -e yay -Syyu"
         }
 }

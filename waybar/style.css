@@ -1,39 +1,31 @@
-@import "./gruvbox.css";
+@import "./gruvbox_dark.css";
 
 * {
     border: 1px;
-    font-family: 'monocraft';
-    font-size: 14px;
-    min-height: 0px;
-    font-weight: normal;
+    font-family: 'scientifica';
+    font-size: 18px;
+    min-height: 5px;
 }
 
 window > box {
-    background-color: rgba(0, 0, 0, 0);
+    background-color: @transparent;
 }
 
 window#waybar {
-    background-color: rgba(0, 0, 0, 0);
-    color: @text;
+    background-color: @transparent;
+    color: @fg0;
 }
 
 
 #workspaces {
-    color: @text;
+    color: @gray;
     border: 0px;
-    box-shadow: inherit;
 }
 
 #workspaces button {
-    border-radius: 0px;
-    color: @overlay0;
-    background-color: transparent;
-}
-
-#workspaces button:hover {
-    color: @peach;
-    background-color: @white;
-    opacity: 1.0;
+    border-radius: 1px;
+    color: @gray0;
+    opacity: 0.6;
 }
 
 #workspaces button.focused {
@@ -41,11 +33,8 @@ window#waybar {
 }
 
 #workspaces button.active {
-    color: @yellow;
-    font-style: italic;
-    border: 1px solid @yellow;
-    border-radius: 5px;
-    font-size: 16px;
+    color: @gray;
+    opacity: 1
 }
 
 #workspaces button.urgent {
@@ -71,9 +60,10 @@ window#waybar {
 #workspaces,
 #custom-updates,
 #taskbar {
-    background-color: @base;
-    border-radius: 7px;
-    border: 2px solid @overlay1;
+    background-color: @bg;
+    border-radius: 5px 5px 0 0;
+    /* border: 2px solid @; */
+    border-bottom: 0px;
     padding-left: 10px;
     padding-right: 10px;
     margin-left: 5px;
@@ -97,36 +87,71 @@ label:focus {
 }
 
 #custom-vpnstatus {
-    color: @sapphire;
+    color: @fg2;
     font-size: 20px;
 }
 
 #custom-spotify {
-    color: @green;
+    color: @aqua0;
 }
 
 #custom-basilk {
-    color: @pink;
+    color: @purple0;
 }
 
 #network {
-    color: @pink;
+    color: @blue0;
 }
+
 
 #memory {
-    color: @lavender;
+    color: @gray;
 }
 
+#memory.warning {
+    color: @yellow0;
+}
+
+#memory.critical {
+    color: @red0;
+}
+
+
 #cpu {
-    color: @subtext1;
+    color: @gray;
+}
+
+#cpu.warning {
+    color: @yellow;
+}
+
+#cpu.critical {
+    color: @red0;
+}
+
+
+#temperature {
+    color: @gray;
+}
+
+#temperature.critical {
+    color: @red;
 }
 
 #pulseaudio {
-    color: @teal;
+    color: @gray;
+}
+
+#pulseaudio.warning {
+    color: @yellow;
+}
+
+#pulseaudio.critical {
+    color: @orange;
 }
 
 #pulseaudio.muted {
-    color: @overlay0;
+    color: @gray;
 }
 
 #battery {
@@ -147,9 +172,5 @@ label:focus {
 }
 
 #clock {
-    color: @rosewater;
-}
-
-#modules-right {
-    background: @base;
+    color: @gray;
 }

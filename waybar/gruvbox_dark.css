@@ -1,0 +1,26 @@
+@define-color red #cc241d; /* Dark red */
+@define-color red0 #fb4934; /* Dark red */
+@define-color orange #d65d0e; /* Dark orange */
+@define-color orange0 #fe8019; /* Light orange */
+@define-color yellow #d79921; /* Yellow */
+@define-color yellow0 #fabd2f;
+@define-color green #98971a; /* Olive green */
+@define-color green0 #b8bb26; /* Light green */
+@define-color aqua #689d6a; /* Dark green */
+@define-color aqua0 #8ec07c; /* Light green */
+@define-color gray #a89984; /* Dark gray */
+@define-color gray0 #928374; /* Light gray */
+@define-color blue #458588; /* Dark blue */
+@define-color blue0 #83a598; /* Light blue */
+@define-color purple #b16286; /* Darker pink */
+@define-color purple0 #d3869b; /* Darker pink */
+@define-color fg #ebdbb2; /* Darker tan */
+@define-color fg0 #fbf1c7; /* Darkest tan */
+@define-color fg1 #ebdbb2; /* Darker tan */
+@define-color fg2 #d5c4a1; /* Dark tan */
+@define-color bg #282828; /* Darkest gray */
+@define-color bg0 #282828; /* Darkest gray */
+@define-color bg1 #3c3836; /* Darker gray */
+@define-color bg2 #504945; /* Dark gray */
+@define-color bg3 #665c54; /* Dark gray */
+@define-color bg4 #7c6f64; /* Dark gray */

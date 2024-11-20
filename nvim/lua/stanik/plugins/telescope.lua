@@ -22,6 +22,11 @@ return {
             end,
         })
 
+        local ignore_filetypes_list = {
+            "venv", "__pycache__", "%.xlsx", "%.jpg", "%.png", "%.webp", "%.pdf", "%.odt", "%.ico", -- default
+            "%.meta", "%.asmdef",                                                                   -- unity
+        }
+
         telescope.setup({
             defaults = {
                 path_display = { "smart" },
@@ -33,6 +38,7 @@ return {
                         ["<C-S-t>"] = trouble_telescope.open,
                     },
                 },
+                file_ignore_patterns = ignore_filetypes_list,
             },
         })
 

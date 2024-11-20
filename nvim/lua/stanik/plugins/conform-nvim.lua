@@ -1,17 +1,23 @@
+-- Lightweight yet powerful formatter plugin for Neovim
 return {
     "stevearc/conform.nvim",
     opts = {},
 
     config = function()
         require("conform").setup({
+            formatters = {
+                ["clang-format"] = {
+                    prepend_args = { "-style", "Microsoft" },
+                },
+            },
             formatters_by_ft = {
                 lua = { "lua-format", lsp_format = "fallback" },
                 python = { "isort", "black", lsp_format = "fallback" },
                 rust = { "rustfmt", lsp_format = "fallback" },
                 xml = { "xmllint", lsp_format = "fallback" },
                 cs = { "csharpier", lsp_format = "fallback" },
-                c = { "clang-format", lsp_format = "fallback" },
-                cpp = { "clang-format", lsp_format = "fallback" },
+                c = { "clang_format", lsp_format = "fallback", },
+                cpp = { "clang_format", lsp_format = "fallback", },
             },
         })
 

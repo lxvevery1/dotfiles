@@ -5,7 +5,6 @@ scriptencoding utf-8
 filetype indent plugin on
 syntax on
 
-
 """"""""""""""""
 " Command maps "
 """"""""""""""""
@@ -24,15 +23,22 @@ nnoremap <C-a>      ggVG
 " Highlight all search occurances
 nnoremap <F4>       :set hlsearch!<CR>
 
-" move cursor with the line
-nnoremap <C-S-E> <C-E>j
-nnoremap <C-S-Y> <C-Y>k
+" move cursor with the line (sync scrolling)
+nnoremap <C-S-E> j<C-E>
+nnoremap <C-S-Y> k<C-Y>
 
 " Use ctrl-[hjkl] to select the active split!
 nnoremap <silent> <c-k> :wincmd k<CR>
 nnoremap <silent> <c-j> :wincmd j<CR>
 nnoremap <silent> <c-h> :wincmd h<CR>
 nnoremap <silent> <c-l> :wincmd l<CR>
+
+" Save and quit
+command! W w
+command! Q q
+command! Wq wq
+command! Wa wa
+command! WQ wq
 
 """""""
 " Let "
@@ -53,13 +59,6 @@ let mapleader=" "
 augroup myCmds
     au!
     autocmd VimEnter * silent !echo -ne "\e[2 q"
-augroup END
-
-" cursor line
-augroup cursorline
-  autocmd!
-  autocmd WinEnter,BufEnter * setlocal cursorline cursorcolumn
-  autocmd WinLeave,BufLeave * setlocal nocursorline nocursorcolumn
 augroup END
 
 """""""""""""
@@ -102,17 +101,7 @@ function! Preserve(command)
     call setpos('.', cursor_position)
 endfunction
 
-" Re-indent the whole buffer.
-"function! Indent()
-"    call Preserve('normal gg=G')
-"endfunction
-
-
 autocmd BufWritePre * :call TrimWhitespace()
-
-" Indent on save hook
-" autocmd BufWritePre <buffer> call Indent()
-
 
 """"""""""""
 " Commands "
@@ -121,13 +110,7 @@ autocmd BufWritePre * :call TrimWhitespace()
 " Copy current file path to the buffer
 command! CopyFilePath let @+ = expand('%:p')
 
-" Save and quit
-command! W w
-command! Q q
-command! Wq wq
-command! Wa wa
-command! WQ wq
-
+cnoreabbrev W w
 
 """"""""
 " Sets "
@@ -179,6 +162,9 @@ xnoremap <silent> <leader>y y:call system("wl-copy --trim-newline", @*)<cr>:call
 """"""""""""""
 " Highlights "
 """"""""""""""
+
+" tranparent bg
+hi Normal guibg=NONE ctermbg=NONE
 
 hi ColorColumn                      ctermbg=red         ctermfg=black
 " italic comments

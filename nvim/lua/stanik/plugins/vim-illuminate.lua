@@ -1,6 +1,7 @@
 return {
-    "RRethy/vim-illuminate",-- default configuration
-    config = function ()
+    "RRethy/vim-illuminate", -- default configuration
+    priority = 10,
+    config = function()
         require('illuminate').configure({
             -- providers: provider used to get references in the buffer, ordered by priority
             providers = {
@@ -47,7 +48,7 @@ return {
             -- If nil, vim-illuminate will be disabled for large files.
             large_file_overrides = nil,
             -- min_count_to_highlight: minimum number of matches required to perform highlighting
-            min_count_to_highlight = 2,
+            min_count_to_highlight = 1,
             -- should_enable: a callback that overrides all other settings to
             -- enable/disable illumination. This will be called a lot so don't do
             -- anything expensive in it.
@@ -55,5 +56,23 @@ return {
             -- case_insensitive_regex: sets regex case sensitivity
             case_insensitive_regex = false,
         })
+        -- local highlights = {
+        --     IlluminatedWord = { cterm = "underline" },
+        --     IlluminatedCurWord = { cterm = "underline" },
+        --     IlluminatedWordText = { cterm = "underline" },
+        --     IlluminatedWordRead = { cterm = "underline" },
+        --     IlluminatedWordWrite = { cterm = "underline" },
+        -- }
+        --
+        -- for group, value in pairs(highlights) do
+        --     vim.api.nvim_set_hl(0, group, value)
+        -- end
+        local highlights = {
+            IlluminatedWord = { bg = "#333333" },
+        }
+
+        for group, value in pairs(highlights) do
+            vim.api.nvim_set_hl(0, group, value)
+        end
     end,
 }
