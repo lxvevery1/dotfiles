@@ -3,7 +3,7 @@
         "layer": "bottom",
         "modules-left": ["hyprland/workspaces", "custom/basilk", "battery" ],
         "modules-right": ["tray", "network", "cpu",  "temperature", "memory", "pulseaudio", "clock#date", "clock"],
-        "modules-center": [ "custom/spotify"],
+        "modules-center": [ "custom/spotify" ],
 
         "hyprland/workspaces": {
             "disable-scroll": true,
@@ -24,10 +24,17 @@
         },
         "custom/spotify": {
             "exec": "/home/stanik/scripts/waybar/music_panel.sh",
-            "format": " {}",
+            "format": "  {}",
+            "states": {
+                "playing": "Playing",
+                "paused": "Paused",
+                "stopped": "Stopped"
+            },
             "on-click": "playerctl play-pause",
             "on-scroll-up": "playerctl next",
-            "on-scroll-down": "playerctl previous"
+            "on-scroll-down": "playerctl previous",
+            "return-type": "json",
+            "interval": 1
         },
         "custom/basilk": {
             "exec": "/home/stanik/scripts/waybar/basilk_panel.sh",
@@ -43,7 +50,8 @@
             "format": "<span style=\"italic\">{}</span>"
         },
         "tray": {
-            "spacing": 10
+            "spacing": 10,
+            "format": "::"
         },
         "clock#date": {
             "timezone": "Europe/Moscow",
@@ -93,7 +101,6 @@
             }
         },
         "network": {
-            // "interface": "wlp2*", // (Optional) To force the use of this interface
             "format-wifi": "  ({signalStrength}%)",
             "format-ethernet": "󰈁",
             "format-linked": "{󰄡 {ifname} (No IP)",
@@ -106,7 +113,7 @@
             "orientation": "horizontal"
         },
         "pulseaudio": {
-            "scroll-step": 5, // %, can be a float
+            "scroll-step": 5,
             "format": "{icon} {volume}%",
             "format-muted": " ",
             "format-icons": {

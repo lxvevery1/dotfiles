@@ -16,7 +16,6 @@ window#waybar {
     color: @fg0;
 }
 
-
 #workspaces {
     color: @gray;
     border: 0px;
@@ -34,11 +33,11 @@ window#waybar {
 
 #workspaces button.active {
     color: @gray;
-    opacity: 1
+    opacity: 1;
 }
 
 #workspaces button.urgent {
-    color: @red;
+    color: @red0;
 }
 
 #tray,
@@ -62,23 +61,16 @@ window#waybar {
 #taskbar {
     background-color: @bg;
     border-radius: 5px 5px 0 0;
-    /* border: 2px solid @; */
     border-bottom: 0px;
-    padding-left: 10px;
-    padding-right: 10px;
-    margin-left: 5px;
-    margin-right: 5px;
+    padding: 0 10px;
+    margin: 0 5px;
 }
 
 @keyframes blink {
     to {
-        background-color: @red;
+        background-color: @red0;
         color: @text;
     }
-}
-
-label:focus {
-
 }
 
 #custom-dot {
@@ -91,86 +83,75 @@ label:focus {
     font-size: 20px;
 }
 
+#bg-module {
+    border: 2px solid @;
+    border-bottom: 0px;
+    padding: 0 10px;
+    margin: 0 5px;
+}
+
 #custom-spotify {
+    border: 2px solid @;
+    border-bottom: 0px;
+    padding: 0 10px;
+    margin: 0 5px;
+}
+
+#custom-spotify.Playing {
     color: @aqua0;
+}
+
+#custom-spotify.Paused,
+#custom-spotify.Stopped {
+    color: @gray;
 }
 
 #custom-basilk {
     color: @purple0;
+    border: 2px solid @;
+    border-bottom: 0px;
+    padding: 0 10px;
+    margin: 0 5px;
 }
 
 #network {
     color: @blue0;
 }
 
-
-#memory {
+#clock,
+#memory,
+#cpu,
+#temperature,
+#pulseaudio,
+#battery {
     color: @gray;
 }
 
-#memory.warning {
-    color: @yellow0;
-}
-
-#memory.critical {
-    color: @red0;
-}
-
-
-#cpu {
-    color: @gray;
-}
-
-#cpu.warning {
-    color: @yellow;
-}
-
-#cpu.critical {
-    color: @red0;
-}
-
-
-#temperature {
-    color: @gray;
-}
-
-#temperature.critical {
-    color: @red;
-}
-
-#pulseaudio {
-    color: @gray;
-}
-
+#memory.warning,
+#cpu.warning,
 #pulseaudio.warning {
-    color: @yellow;
+    color: @yellow0;
+    border: 2px solid @;
 }
 
+#memory.critical,
+#cpu.critical,
+#temperature.critical,
 #pulseaudio.critical {
-    color: @orange;
+    color: @red0;
+    border: 2px solid @;
 }
 
 #pulseaudio.muted {
     color: @gray;
-}
-
-#battery {
-    color: @green;
+    border: 2px solid @;
 }
 
 #battery.low {
-    color: @red;
+    color: @red0;
 }
 
 #tray {
-}
-
-#disk {
-}
-
-#window {
-}
-
-#clock {
-    color: @gray;
+    margin: 0;
+    border: 20px;
 }
