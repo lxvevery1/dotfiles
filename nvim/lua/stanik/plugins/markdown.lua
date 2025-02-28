@@ -2,12 +2,11 @@ return {
     "MeanderingProgrammer/markdown.nvim",
     dependencies = { "nvim-treesitter/nvim-treesitter" },
 
-    ft = { "md", "markdown" },
     config = function()
         require('render-markdown').setup(
             {
-                latex =
-                {
+                enabled = false,
+                latex = {
                     enable = false
                 },
                 highlight = {

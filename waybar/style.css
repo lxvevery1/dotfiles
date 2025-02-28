@@ -2,13 +2,14 @@
 
 * {
     border: 1px;
-    font-family: 'scientifica';
-    font-size: 18px;
-    min-height: 5px;
+    /* font-family: 'Liberation Mono'; */
+    font-family: 'SourceCodeVF';
+    font-size: 14px;
+    min-height: 2px;
 }
 
 window > box {
-    background-color: @transparent;
+    background-color: rgba(40, 40, 40, 0.9);
 }
 
 window#waybar {
@@ -22,7 +23,7 @@ window#waybar {
 }
 
 #workspaces button {
-    border-radius: 1px;
+    border-radius: 0px;
     color: @gray0;
     opacity: 0.6;
 }
@@ -47,6 +48,7 @@ window#waybar {
 #temperature.critical,
 #custom-spotify,
 #custom-basilk,
+#custom-basilk_pe,
 #clock,
 #network,
 #battery,
@@ -60,10 +62,10 @@ window#waybar {
 #custom-updates,
 #taskbar {
     background-color: @bg;
-    border-radius: 5px 5px 0 0;
+    border-radius: 0px 0px 0 0;
     border-bottom: 0px;
     padding: 0 10px;
-    margin: 0 5px;
+    margin: 0 0px;
 }
 
 @keyframes blink {
@@ -84,14 +86,14 @@ window#waybar {
 }
 
 #bg-module {
-    border: 2px solid @;
+    border: 0px solid @;
     border-bottom: 0px;
     padding: 0 10px;
     margin: 0 5px;
 }
 
 #custom-spotify {
-    border: 2px solid @;
+    border: 0px solid @;
     border-bottom: 0px;
     padding: 0 10px;
     margin: 0 5px;
@@ -108,16 +110,21 @@ window#waybar {
 
 #custom-basilk {
     color: @purple0;
-    border: 2px solid @;
+    border: 0px solid @;
     border-bottom: 0px;
     padding: 0 10px;
     margin: 0 5px;
 }
 
-#network {
+#custom-basilk_pe {
     color: @blue0;
+    border: 0px solid @;
+    border-bottom: 0px;
+    padding: 0 10px;
+    margin: 0 5px;
 }
 
+#network,
 #clock,
 #memory,
 #cpu,
@@ -132,6 +139,13 @@ window#waybar {
 #pulseaudio.warning {
     color: @yellow0;
     border: 2px solid @;
+    border-bottom: 0px;
+}
+
+#network.disconnected {
+    color: @red0;
+    border: 2px solid @;
+    border-bottom: 0px;
 }
 
 #memory.critical,
@@ -140,11 +154,13 @@ window#waybar {
 #pulseaudio.critical {
     color: @red0;
     border: 2px solid @;
+    border-bottom: 0px;
 }
 
 #pulseaudio.muted {
     color: @gray;
     border: 2px solid @;
+    border-bottom: 0px;
 }
 
 #battery.low {

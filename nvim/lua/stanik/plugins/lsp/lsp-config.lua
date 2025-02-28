@@ -1,21 +1,23 @@
 return {
     "neovim/nvim-lspconfig",
     event = { "BufReadPre", "BufNewFile" },
-    dependencies = {
+    dependencies =
+    {
         "hrsh7th/cmp-nvim-lsp",
+        "williamboman/mason.nvim",
         { "antosha417/nvim-lsp-file-operations", config = true },
-        { "folke/neodev.nvim", opts = {} },
+        { "folke/neodev.nvim",                   opts = {} },
     },
+
+
+    -- import lspconfig plugin
     config = function()
-        -- import lspconfig plugin
         local lspconfig = require("lspconfig")
 
         -- import mason_lspconfig plugin
         local mason_lspconfig = require("mason-lspconfig")
-
         -- import cmp-nvim-lsp plugin
         local cmp_nvim_lsp = require("cmp_nvim_lsp")
-
         local keymap = vim.keymap -- for conciseness
 
         vim.api.nvim_create_autocmd("LspAttach", {
@@ -64,6 +66,9 @@ return {
 
                 opts.desc = "LSP Restart"
                 keymap.set("n", "<leader>lr", ":LspRestart<CR>", opts) -- mapping to restart lsp if necessary
+
+                opts.desc = "Show method (function) signature"
+                keymap.set("n", "<leader>s", ":lua vim.lsp.buf.signature_help()<CR>", opts)
             end,
         })
 
@@ -78,6 +83,33 @@ return {
             vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = "" })
         end
 
+        local function setup_rust_analyzer()
+            return {
+                cmd = { "/bin/rust-analyzer" },
+                checkOnSave = true,
+                check = { command = "clippy", features = "all" },
+                assist = {
+                    importGranularity = 'module',
+                    importPrefix = 'self',
+                },
+                diagnostics = {
+                    enable = true,
+                    enableExperimental = true,
+                },
+                cargo = {
+                    loadOutDirsFromCheck = true,
+                    features = "all", -- avoid error: file not included in crate hierarchy
+                },
+                procMacro = {
+                    enable = true,
+                },
+                inlayHints = {
+                    chainingHints = true,
+                    parameterHints = true,
+                    typeHints = true,
+                },
+            }
+        end
         mason_lspconfig.setup_handlers({
             -- default handler for installed servers
             function(server_name)
@@ -149,7 +181,7 @@ return {
 
                     -- Only run analyzers against open files when 'enableRoslynAnalyzers' is
                     -- true
-                    analyze_open_documents_only = false,
+                    analyze_open_documents_only = true,
                 })
                 local function checktime_if_not_command_mode()
                     if vim.api.nvim_get_mode().mode ~= 'c' then
@@ -159,11 +191,11 @@ return {
 
                 -- Auto reload on save
                 vim.api.nvim_create_autocmd(
-                {'FocusGained', 'BufEnter', 'CursorHold', 'CursorHoldI'},
-                {
-                    pattern = '*',
-                    callback = checktime_if_not_command_mode
-                })
+                    { 'FocusGained', 'BufEnter', 'CursorHold', 'CursorHoldI' },
+                    {
+                        pattern = '*',
+                        callback = checktime_if_not_command_mode
+                    })
             end,
             ["lua_ls"] = function()
                 -- configure lua server (with special settings)
@@ -183,15 +215,13 @@ return {
                 })
             end,
             ["rust_analyzer"] = function()
-                lspconfig["rust_analyzer"].setup({
+                -- comment this line when using rustaceanvim
+                -- lspconfig["rust_analyzer"].setup(setup_rust_analyzer())
+            end,
+            ["asm_lsp"] = function()
+                lspconfig["asm_lsp"].setup({
                     capabilities = capabilities,
-                    settings = {
-                        ['rust_analyzer'] = {
-                            diagnostics = {
-                                enable = true;
-                            },
-                        },
-                    },
+                    filetypes = { "asm", "pov" },
                 })
             end,
         })

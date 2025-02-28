@@ -1,7 +1,8 @@
 {
+    "output": "eDP-1",
     "position": "bottom",
         "layer": "bottom",
-        "modules-left": ["hyprland/workspaces", "custom/basilk", "battery" ],
+        "modules-left": ["hyprland/workspaces", "custom/basilk", "custom/basilk_pe", "battery" ],
         "modules-right": ["tray", "network", "cpu",  "temperature", "memory", "pulseaudio", "clock#date", "clock"],
         "modules-center": [ "custom/spotify" ],
 
@@ -24,7 +25,8 @@
         },
         "custom/spotify": {
             "exec": "/home/stanik/scripts/waybar/music_panel.sh",
-            "format": "  {}",
+            "exec-if": "pgrep spotify || pgrep firefox || pgrep mpv",
+            "format": "  {text}",
             "states": {
                 "playing": "Playing",
                 "paused": "Paused",
@@ -40,6 +42,11 @@
             "exec": "/home/stanik/scripts/waybar/basilk_panel.sh",
             "format": " {}",
             "on-click": "kitty -e basilk"
+        },
+        "custom/basilk_pe": {
+            "exec": "/home/stanik/scripts/waybar/basilk_pe_panel.sh",
+            "format": " {}",
+            "on-click": "kitty -e basilk_pe"
         },
         "disk": {
             "interval": 30,
@@ -126,7 +133,6 @@
                 "warning": 99,
                 "critical": 999
             }
-
         },
         "custom/updates": {
             "format": "{icon} {}",
