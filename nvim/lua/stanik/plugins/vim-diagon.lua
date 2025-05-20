@@ -1,5 +1,4 @@
-return
-{
+return {
     "willchao612/vim-diagon",
-    filetype="md"
+    filetype = "md"
 }
