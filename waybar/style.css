@@ -1,20 +1,21 @@
-@import "./gruvbox_dark.css";
+@import "./rusty.css";
 
 * {
-    border: 1px;
-    /* font-family: 'Liberation Mono'; */
-    font-family: 'SourceCodeVF';
+    border: 0px;
+    /* font-family: 'Courier Prime'; */
+    font-family: 'Trajan Pro';
     font-size: 14px;
-    min-height: 2px;
+    min-height: 5px;
+    font-weight: 700;
 }
 
 window > box {
-    background-color: rgba(40, 40, 40, 0.9);
+    background-color: rgba(0, 0, 0, 0.5);
 }
 
 window#waybar {
     background-color: @transparent;
-    color: @fg0;
+    color: @fg;
 }
 
 #workspaces {
@@ -24,7 +25,7 @@ window#waybar {
 
 #workspaces button {
     border-radius: 0px;
-    color: @gray0;
+    color: @gray2;
     opacity: 0.6;
 }
 
@@ -33,7 +34,7 @@ window#waybar {
 }
 
 #workspaces button.active {
-    color: @gray;
+    color: @fg;
     opacity: 1;
 }
 
@@ -47,6 +48,7 @@ window#waybar {
 #temperature,
 #temperature.critical,
 #custom-spotify,
+#custom-vis,
 #custom-basilk,
 #custom-basilk_pe,
 #clock,
@@ -64,7 +66,7 @@ window#waybar {
     background-color: @bg;
     border-radius: 0px 0px 0 0;
     border-bottom: 0px;
-    padding: 0 10px;
+    padding: 0 7px;
     margin: 0 0px;
 }
 
@@ -76,31 +78,23 @@ window#waybar {
 }
 
 #custom-dot {
-    padding-top: 0px;
+    font-family: 'Courier Prime';
     color: @yellow;
-}
-
-#custom-vpnstatus {
-    color: @fg2;
-    font-size: 20px;
+    padding: 0px 10px;
 }
 
 #bg-module {
     border: 0px solid @;
     border-bottom: 0px;
     padding: 0 10px;
-    margin: 0 5px;
 }
 
 #custom-spotify {
     border: 0px solid @;
     border-bottom: 0px;
-    padding: 0 10px;
-    margin: 0 5px;
 }
-
 #custom-spotify.Playing {
-    color: @aqua0;
+    color: @fg;
 }
 
 #custom-spotify.Paused,
@@ -108,20 +102,22 @@ window#waybar {
     color: @gray;
 }
 
-#custom-basilk {
-    color: @purple0;
+
+#custom-vis {
     border: 0px solid @;
     border-bottom: 0px;
-    padding: 0 10px;
-    margin: 0 5px;
+}
+
+#custom-basilk {
+    color: @green;
+    border: 0px solid @;
+    border-bottom: 0px;
 }
 
 #custom-basilk_pe {
-    color: @blue0;
+    color: @yellow;
     border: 0px solid @;
     border-bottom: 0px;
-    padding: 0 10px;
-    margin: 0 5px;
 }
 
 #network,
@@ -131,7 +127,7 @@ window#waybar {
 #temperature,
 #pulseaudio,
 #battery {
-    color: @gray;
+    color: @fg;
 }
 
 #memory.warning,
@@ -169,5 +165,4 @@ window#waybar {
 
 #tray {
     margin: 0;
-    border: 20px;
 }

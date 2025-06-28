@@ -1,0 +1,27 @@
+/* Rusty Alduin Color Definitions */
+@define-color red      #af5f5f;  /* Muted brick red */
+@define-color red0     #df5f5f;  /* Brighter red */
+@define-color orange   #af875f;  /* Rusty orange */
+@define-color orange0  #dfaf87;  /* Soft peach */
+@define-color yellow   #dfaf87;  /* Warm beige (replaces pure yellow) */
+@define-color yellow0  #ffdf87;  /* Gold (from your String highlight) */
+@define-color green    #87875f;  /* Olive green */
+@define-color green0   #afaf87;  /* Muted sage */
+@define-color aqua     #5f8787;  /* Teal (darker than Gruvbox) */
+@define-color aqua0    #87afaf;  /* Cyan */
+@define-color gray     #878787;  /* Medium gray */
+@define-color gray0    #6c6c6c;  /* Dark gray */
+@define-color blue     #5f87af;  /* Steel blue */
+@define-color blue0    #87afd7;  /* Light blue */
+@define-color purple   #af8787;  /* Dusty rose */
+@define-color purple0  #d3869b;  /* Kept for compatibility */
+@define-color fg       #ebdbb2;  /* Primary text (matches Vim Normal) */
+@define-color fg0      #ebdbb2;  /* Bright text */
+@define-color fg1      #1c1c1c;  /* Secondary text */
+@define-color fg2      #b0b090;  /* Inactive text */
+@define-color bg       #000000;  /* Main background (from your Vim theme) */
+@define-color bg0      #111111;  /* Darker variant */
+@define-color bg1      #222222;  /* Slightly lighter */
+@define-color bg2      #333333;  /* Dark gray (from Gruvbox but darker) */
+@define-color bg3      #444444;  /* Medium gray */
+@define-color bg4      #555555;  /* Lighter gray */

@@ -20,6 +20,11 @@ return {
         local cmp_nvim_lsp = require("cmp_nvim_lsp")
         local keymap = vim.keymap -- for conciseness
 
+        -- rounded docs borders
+        vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {
+            border = "solid",
+        })
+
         vim.api.nvim_create_autocmd("LspAttach", {
             group = vim.api.nvim_create_augroup("UserLspConfig", {}),
             callback = function(ev)
@@ -161,7 +166,7 @@ return {
                     enable_ms_build_load_projects_on_demand = true,
 
                     -- Enables support for roslyn analyzers, code fixes and rulesets.
-                    enable_roslyn_analyzers = true,
+                    enable_roslyn_analyzers = false,
 
                     -- Specifies whether 'using' directives should be grouped and sorted during
                     -- document formatting.

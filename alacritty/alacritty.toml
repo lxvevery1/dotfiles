@@ -1,34 +1,17 @@
-import = [
-    "~/.config/alacritty/themes/themes/catppuccin_mocha.toml"
-]
-
 [font]
-size = 15.0
+size = 8.0
 
-# normal = {family = "AgaveNerdFont", style = "Regular"}
-# bold = {family = "AgaveNerdFont", style = "Bold"}
-# italic = {family = "AgaveNerdFont", style = "Italic"}
-
-# normal = {family = "CozetteVector", style = "Regular"}
-# bold =   {family = "CozetteVector", style = "Regular"}
-# italic = {family = "monocraft", style = "Italic"}
-
-normal = {family = "scientifica", style = "Regular"}
-bold =   {family = "scientifica", style = "Regular"}
-italic = {family = "scientifica", style = "Italic"}
-
-# normal = {family = "creep2", style = "Regular"}
-# bold =   {family = "creep2", style = "Bold"}
-# italic = {family = "creep2", style = "Italic"}
-
-# normal = {family = "JetBrainsMonoNerdFont", style = "Bold"}
-# bold =   {family = "JetBrainsMonoNerdFont", style = "ExtraBold"}
-# italic = {family = "JetBrainsMonoNerdFont", style = "Italic"}
+normal = {family = "Courier Prime", style = "Regular"}
+bold = {family = "Courier Prime", style = "Bold"}
+italic = {family = "Courier Prime", style = "Italic"}
 
 [cursor]
-style = {shape = "Block", blinking = "off"}
+style = {shape = "Block", blinking = "on"}
 
 [keyboard]
 bindings = [
-{key = "Return", mods = "Super|Shift", action = "SpawnNewInstance"}
+    {key = "Return", mods = "Super|Shift", action = "SpawnNewInstance"}
 ]
+
+[general]
+import = [ "/home/stanik/.config/alacritty/themes/alduin.toml" ]

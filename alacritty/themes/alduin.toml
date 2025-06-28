@@ -1,0 +1,28 @@
+# Colors (Alduin)
+
+# Default Colors
+[colors.primary]
+background = '#000000'
+foreground = '#dfdfaf'
+
+# Normal colors
+[colors.normal]
+black   = '#1c1c1c'
+red     = '#af5f5f'
+green   = '#87875f'
+yellow  = '#dfaf87'
+blue    = '#878787'
+magenta = '#875f5f'
+cyan    = '#87afaf'
+white   = '#dfdfaf'
+
+# Bright colors
+[colors.bright]
+black   = '#878787'   # bright black = gray
+red     = '#af5f5f'
+green   = '#87875f'
+yellow  = '#dfaf87'
+blue    = '#878787'
+magenta = '#875f5f'
+cyan    = '#87afaf'
+white   = '#dfdfaf'

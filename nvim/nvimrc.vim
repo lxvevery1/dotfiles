@@ -37,6 +37,8 @@ nnoremap <silent> <c-l> :wincmd l<CR>
 nnoremap <silent> <C-S-J> :m+1<CR>
 nnoremap <silent> <C-S-K> :m-2<CR>
 
+nnoremap <C-F> :if &foldlevel == 1 \| set foldlevel=99 \| else \| set foldlevel=1 \| endif<CR>
+
 " Save and quit
 command! W w
 command! Q q
@@ -159,6 +161,9 @@ set ttyfast
 set clipboard=unnamedplus
 set whichwrap+=h,l
 
+set foldmethod=marker
+set foldmarker={,}
+set foldlevelstart=99
 " Wayland clipboard
 xnoremap <silent> <leader>y y:call system("wl-copy --trim-newline", @*)<cr>:call system("wl-copy -p --trim-newline", @*)<cr>
 

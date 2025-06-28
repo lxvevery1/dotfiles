@@ -1,9 +1,9 @@
 {
     "output": "eDP-1",
-    "position": "bottom",
+    "position": "top",
         "layer": "bottom",
-        "modules-left": ["hyprland/workspaces", "custom/basilk", "custom/basilk_pe", "battery" ],
-        "modules-right": ["tray", "network", "cpu",  "temperature", "memory", "pulseaudio", "clock#date", "clock"],
+        "modules-left": ["hyprland/workspaces", "custom/dot", "custom/basilk", "custom/dot", "custom/basilk_pe", "custom/dot", "battery" ],
+        "modules-right": ["tray", "custom/dot", "network", "custom/dot", "cpu", "custom/dot", "temperature", "custom/dot", "memory", "custom/dot", "pulseaudio", "custom/dot", "clock#date", "custom/dot", "clock"],
         "modules-center": [ "custom/spotify" ],
 
         "hyprland/workspaces": {
@@ -13,39 +13,44 @@
         },
         "hyprland/window": {
             "max-length": 60,
-            "format": " {}",
+            "format": "  {}",
             "rewrite": {
-                " ":" Empty workspace"
+                " ":" empty"
             },
             "separate-outputs": true
         },
         "custom/dot":{
-            "format": ":",
+            "format": "::",
             "interval": 100
         },
         "custom/spotify": {
             "exec": "/home/stanik/scripts/waybar/music_panel.sh",
-            "exec-if": "pgrep spotify || pgrep firefox || pgrep mpv",
-            "format": "  {text}",
+            "exec-if": "pgrep mpv",
+            "format": "♪ {text}",
             "states": {
                 "playing": "Playing",
                 "paused": "Paused",
                 "stopped": "Stopped"
             },
-            "on-click": "playerctl play-pause",
+            "on-click": "playerctl -p mpv play-pause",
             "on-scroll-up": "playerctl next",
             "on-scroll-down": "playerctl previous",
             "return-type": "json",
             "interval": 1
         },
+        "custom/vis": {
+            "exec": "/home/stanik/scripts/someRandomThing/loadingBar/v2/a.out",
+            "format": "{}",
+            "interval": 1
+        },
         "custom/basilk": {
             "exec": "/home/stanik/scripts/waybar/basilk_panel.sh",
-            "format": " {}",
+            "format": "  {}",
             "on-click": "kitty -e basilk"
         },
         "custom/basilk_pe": {
             "exec": "/home/stanik/scripts/waybar/basilk_pe_panel.sh",
-            "format": " {}",
+            "format": "❤  {}",
             "on-click": "kitty -e basilk_pe"
         },
         "disk": {
@@ -62,7 +67,7 @@
         },
         "clock#date": {
             "timezone": "Europe/Moscow",
-            "format":" {:%d %b}",
+            "format":"  {:%d %b}",
             "interval": 1,
             "on-click": "zenity --calendar"
         },
@@ -74,7 +79,7 @@
         },
         "cpu": {
             "interval": 1,
-            "format": " {usage}%",
+            "format": "  {usage}%",
             "states": {
                 "warning": 50,
                 "critical": 80
@@ -87,9 +92,9 @@
         },
         "battery": {
             "format": "{icon} {capacity}% - {time}",
-            "format-icons": ["", "", "", "", ""],
+            "format-icons": [" ", " ", " ", " ", " "],
             "format-time": "{H}h{M}m",
-            "format-charging": " {icon} {capacity}% - {time}",
+            "format-charging": "  {icon} {capacity}% - {time}",
             "format-full": "",
             "interval": 10,
             "states": {
@@ -124,7 +129,7 @@
             "format": "{icon} {volume}%",
             "format-muted": " ",
             "format-icons": {
-                "default": ["", "", ""]
+                "default": ["", " ", " "]
             },
             "on-click": "pavucontrol",
             "on-click-middle": "pamixer -t",
@@ -134,15 +139,4 @@
                 "critical": 999
             }
         },
-        "custom/updates": {
-            "format": "{icon} {}",
-            "return-type": "json",
-            "format-icons": {
-                "has-updates": "",
-                "updated": ""
-            },
-            "exec-if": "which waybar-module-pacman-updates",
-            "exec": "waybar-module-pacman-updates",
-            "on-click": "alacritty -e yay -Syyu"
-        }
 }

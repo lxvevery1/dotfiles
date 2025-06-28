@@ -51,6 +51,11 @@ return {
                 t({ "", "/// </summary>" }),
             }),
 
+            s("feature", {
+                t("/* --------------------- "),
+                i(1, "What feature"),
+                t({ " --------------------- */" }),
+            }),
             unity_method_snippet("Start"),
             unity_method_snippet("Awake"),
             unity_method_snippet("Update"),
@@ -72,6 +77,7 @@ return {
 
             log_snippet("log"),
             log_snippet("Logger"),
+
         })
     end
 }

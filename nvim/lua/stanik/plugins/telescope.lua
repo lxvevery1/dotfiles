@@ -24,12 +24,12 @@ return {
 
         local ignore_filetypes_list = {
             "venv", "__pycache__", "%.xlsx", "%.jpg", "%.png", "%.webp", "%.pdf", "%.odt", "%.ico", -- default
-            "%.meta", "%.asmdef",                                                                   -- unity
+            "%.meta", "%.asmdef", "%.asset"                                                         -- unity
         }
 
         telescope.setup({
             defaults = {
-                path_display = { "smart" },
+                path_display = { "truncate" },
                 mappings = {
                     i = {
                         ["<C-k>"] = actions.move_selection_previous, -- move to prev result
@@ -39,6 +39,7 @@ return {
                     },
                 },
                 file_ignore_patterns = ignore_filetypes_list,
+                layout_strategy = "vertical",
             },
         })
 
@@ -54,7 +55,5 @@ return {
         keymap.set("n", "<leader>ft", "<cmd>TodoTelescope<cr>", { desc = "Find todos" })
         keymap.set("n", "<leader>fe", "<cmd>Telescope diagnostics<cr>", { desc = "List of warnings/errors in project" })
         keymap.set("n", "<leader>fw", "<cmd>Telescope diagnostics<cr>", { desc = "List of warnings/errors in project" })
-        -- if using nvim-projects
-        -- keymap.set("n", "<leader>fp", "<cmd>lua require'telescope'.extensions.projects.projects{}<cr>", { desc = "List all projects" })
     end,
 }

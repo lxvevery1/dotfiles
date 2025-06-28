@@ -1,0 +1,121 @@
+# vim:fileencoding=utf-8:foldmethod=marker
+
+# : Manager {{{
+[manager]
+cwd = { fg = "#87afaf" }  # Cyan from Rusty Alduin
+
+# Hovered
+hovered         = { fg = "#1c1c1c", bg = "#dfaf87" }  # Soft Orange bg
+preview_hovered = { underline = true }
+
+# Find
+find_keyword  = { fg = "#87875f", italic = true }  # Green
+find_position = { fg = "#af875f", bg = "reset", italic = true }  # Orange
+
+# Marker
+marker_selected = { fg = "#87875f", bg = "#87875f" }  # Green
+marker_copied   = { fg = "#87875f", bg = "#87875f" }  # Green
+marker_cut      = { fg = "#af5f5f", bg = "#af5f5f" }  # Red
+
+# Tab
+tab_active   = { fg = "#dfdfaf", bg = "#262626" }  # Normal fg + dark bg
+tab_inactive = { fg = "#878787", bg = "#121212" }  # Grey + darker bg
+tab_width    = 1
+
+# Border
+border_symbol = "│"
+border_style  = { fg = "#4e4e4e" }  # Muted grey (like LineNr)
+
+# : }}}
+
+# : Status {{{
+[status]
+separator_open  = ""
+separator_close = ""
+separator_style = { fg = "#262626", bg = "#262626" }  # Darker bg
+
+# Mode
+mode_normal = { fg = "#1c1c1c", bg = "#878787", bold = true }  # Grey bg
+mode_select = { fg = "#1c1c1c", bg = "#87875f", bold = true }  # Green bg
+mode_unset  = { fg = "#1c1c1c", bg = "#af5f5f", bold = true }  # Red bg
+
+# Progress
+progress_label  = { fg = "#dfdfaf", bold = true }  # Normal fg
+progress_normal = { fg = "#3c3836", bg = "#262626" }  # Darker grey
+progress_error  = { fg = "#af5f5f", bg = "#262626" }  # Red
+
+# Permissions
+permissions_t = { fg = "#4e4e4e" }  # Muted
+permissions_r = { fg = "#87875f" }  # Green
+permissions_w = { fg = "#af5f5f" }  # Red
+permissions_x = { fg = "#87afaf" }  # Cyan
+permissions_s = { fg = "#4e4e4e" }  # Muted
+# : }}}
+
+# : Input {{{
+[input]
+border   = { fg = "#af875f" }  # Orange
+title    = {}
+value    = {}
+selected = { reversed = true }
+# : }}}
+
+# : Select {{{
+[select]
+border   = { fg = "#262626" }
+active   = { fg = "#af875f" }  # Orange
+inactive = {}
+# : }}}
+
+# : Tasks {{{
+[tasks]
+border  = { fg = "#262626" }
+title   = {}
+hovered = { underline = true }
+# : }}}
+
+# : Which {{{
+[which]
+mask            = { bg = "#262626" }
+cand            = { fg = "#87afaf" }  # Cyan
+rest            = { fg = "#878787" }  # Grey
+desc            = { fg = "#af875f" }  # Orange
+separator       = "  "
+separator_style = { fg = "#4e4e4e" }
+# : }}}
+
+# : Help {{{
+[help]
+on      = { fg = "#af875f" }  # Orange
+exec    = { fg = "#87afaf" }  # Cyan
+desc    = { fg = "#878787" }  # Grey
+hovered = { bg = "#262626", bold = true }
+footer  = { fg = "#262626", bg = "#878787" }  # Dark bg + grey fg
+# : }}}
+
+# : File-specific styles {{{
+[filetype]
+rules = [
+    # Images
+    { mime = "image/*", fg = "#87afaf" },  # Cyan
+
+    # Videos/Audio
+    { mime = "video/*", fg = "#87875f" },  # Green
+    { mime = "audio/*", fg = "#87875f" },  # Green
+
+    # Archives
+    { mime = "application/zip",             fg = "#af875f" },  # Orange
+    { mime = "application/gzip",            fg = "#af875f" },
+    { mime = "application/x-tar",           fg = "#af875f" },
+    { mime = "application/x-bzip",          fg = "#af875f" },
+    { mime = "application/x-bzip2",         fg = "#af875f" },
+    { mime = "application/x-7z-compressed", fg = "#af875f" },
+    { mime = "application/x-rar",           fg = "#af875f" },
+
+    # Directories
+    { name = "*/", fg = "#87afaf" },  # Cyan
+
+    # Fallback (files)
+    { name = "*", fg = "#dfdfaf" }  # Normal fg
+]
+# : }}}

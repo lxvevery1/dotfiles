@@ -1,0 +1,5 @@
+# This directory is a Syncthing folder marker.
+# Do not delete.
+
+folderID: fpqbr-zgany
+created: 2025-05-21T10:19:01+03:00

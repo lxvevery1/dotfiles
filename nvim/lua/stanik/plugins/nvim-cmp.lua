@@ -13,26 +13,12 @@ return {
         },
         "saadparwaiz1/cmp_luasnip",     -- for autocompletion
         "rafamadriz/friendly-snippets", -- useful snippets
-        "onsails/lspkind.nvim",         -- vs-code like pictograms
     },
     config = function()
         local cmp = require("cmp")
         local luasnip = require("luasnip")
-        local lspkind = require("lspkind")
 
 
-        local function border(hl_name)
-            return {
-                { "╭", hl_name },
-                { "─", hl_name },
-                { "╮", hl_name },
-                { "│", hl_name },
-                { "╯", hl_name },
-                { "─", hl_name },
-                { "╰", hl_name },
-                { "│", hl_name },
-            }
-        end
         -- loads vscode style snippets from installed plugins (e.g. friendly-snippets)
         require("luasnip.loaders.from_vscode").lazy_load()
 
@@ -64,23 +50,15 @@ return {
 
             window = {
                 completion = cmp.config.window.bordered {
-                    border = border("CmpBorder"),
-                    winhighlight = "Normal:CmpPmenu,CursorLine:PmenuSel,Search:None",
+                    border = "none",
+                    -- winhighlight = "Normal:CmpPmenu,CursorLine:PmenuSel,Search:None",
                 },
                 documentation = cmp.config.window.bordered {
-                    documentation = {
-                        border = { "╭", "─", "╮", "│", "╯", "─", "╰", "│" },
-                    },
+                    border = "none",
+                    -- winhighlight = "Normal:CmpDoc"
                 },
             },
-
-            -- configure lspkind for vs-code like pictograms in completion menu
-            formatting = {
-                format = lspkind.cmp_format({
-                    maxwidth = 50,
-                    ellipsis_char = "...",
-                }),
-            },
-        })
+        }
+        )
     end,
 }

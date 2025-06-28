@@ -1,44 +1,59 @@
-# gruvbox colors
-set notification-error-bg       "rgba(40,40,40,1)"     # bg
-set notification-error-fg       "rgba(251,73,52,1)"    # bright:red
-set notification-warning-bg     "rgba(40,40,40,1)"     # bg
-set notification-warning-fg     "rgba(250,189,47,1)"   # bright:yellow
-set notification-bg             "rgba(40,40,40,1)"     # bg
-set notification-fg             "rgba(184,187,38,1)"   # bright:green
+# Zathura configuration with custom color scheme (RGBA format)
 
-set completion-bg               "rgba(80,73,69,1)"     # bg2
-set completion-fg               "rgba(235,219,178,1)"  # fg
-set completion-group-bg         "rgba(60,56,54,1)"     # bg1
-set completion-group-fg         "rgba(146,131,116,1)"  # gray
-set completion-highlight-bg     "rgba(131,165,152,1)"  # bright:blue
-set completion-highlight-fg     "rgba(80,73,69,1)"     # bg2
+# Notification colors
+set notification-error-bg       "rgba(18, 18, 18, 1)"     # background
+set notification-error-fg       "rgba(177, 66, 66, 1)"     # color1 (red)
+set notification-warning-bg     "rgba(18, 18, 18, 1)"     # background
+set notification-warning-fg     "rgba(228, 154, 68, 1)"    # color3 (yellow/orange)
+set notification-bg             "rgba(18, 18, 18, 1)"     # background
+set notification-fg             "rgba(216, 124, 74, 1)"    # color2 (orange)
 
-# Define the color in index mode
-set index-bg                    "rgba(80,73,69,1)"     # bg2
-set index-fg                    "rgba(235,219,178,1)"  # fg
-set index-active-bg             "rgba(131,165,152,1)"  # bright:blue
-set index-active-fg             "rgba(80,73,69,1)"     # bg2
+# Completion colors
+set completion-bg               "rgba(18, 18, 18, .9)"     # background
+set completion-fg               "rgba(245, 245, 245, 1)"   # foreground
+set completion-group-bg         "rgba(18, 18, 18, 1)"     # background
+set completion-group-fg         "rgba(167, 167, 167, 1)"  # color5 (gray)
+set completion-highlight-bg     "rgba(74, 139, 139, 1)"   # color4 (teal)
+set completion-highlight-fg     "rgba(245, 245, 245, 1)"  # foreground
 
-set inputbar-bg                 "rgba(40,40,40,1)"     # bg
-set inputbar-fg                 "rgba(235,219,178,1)"  # fg
+# Index mode colors
+set index-bg                    "rgba(18, 18, 18, 1)"     # background
+set index-fg                    "rgba(245, 245, 245, 1)"  # foreground
+set index-active-bg             "rgba(74, 139, 139, 1)"   # color4 (teal)
+set index-active-fg             "rgba(245, 245, 245, 1)"  # foreground
 
-set statusbar-bg                "rgba(80,73,69,1)"     # bg2
-set statusbar-fg                "rgba(235,219,178,1)"  # fg
+# Input bar colors
+set inputbar-bg                 "rgba(18, 18, 18, 1)"     # background
+set inputbar-fg                 "rgba(245, 245, 245, 1)"  # foreground
 
-set highlight-color             "rgba(250,189,47,0.5)" # bright:yellow
-set highlight-active-color      "rgba(254,128,25,0.5)" # bright:orange
+# Status bar colors
+set statusbar-bg                "rgba(18, 18, 18, 1)"     # background
+set statusbar-fg                "rgba(245, 245, 245, 1)"  # foreground
 
-set default-bg                  "rgba(40,40,40,1)"     # bg
-set default-fg                  "rgba(235,219,178,1)"  # fg
+# Highlight colors (keeping transparency)
+set highlight-color             "rgba(228, 154, 68, 0.5)"  # color3 with transparency
+set highlight-active-color      "rgba(216, 124, 74, 0.5)"  # color2 with transparency
+
+# Default colors
+set default-bg                  "rgba(18, 18, 18, .9)"     # background
+set default-fg                  "rgba(235, 219, 178, 1)"  # foreground
 set render-loading              true
-set render-loading-bg           "rgba(40,40,40,1)"     # bg
-set render-loading-fg           "rgba(235,219,178,1)"  # fg
+set render-loading-bg           "rgba(18, 18, 18, 1)"     # background
+set render-loading-fg           "rgba(245, 245, 245, 1)"  # foreground
 
-# Recolor book content's color
-set recolor-lightcolor          "rgba(40,40,40,1)"     # bg
-set recolor-darkcolor           "rgba(235,219,178,1)"  # fg
-set recolor-keephue             "true"                 # keep original color
-set recolor                     "true"
+# Recolor settings for PDFs
+set recolor-lightcolor          "rgba(18, 18, 18, 0)"     # background
+set recolor-darkcolor           "rgba(235, 219, 178, 1)"  # foreground
+set recolor-keephue             true          # keep original colors
+set recolor                     true          # enable recoloring
+
+# Border colors (for GUI version)
+set window-active-border        "rgba(177, 66, 66, 1)"    # active_border_color
+set window-inactive-border      "rgba(148, 148, 148, 1)"  # inactive_border_color
+
+# Border colors (for GUI version)
+set window-active-border        "#B14242"     # active_border_color
+set window-inactive-border      "#949494"     # inactive_border_color
 
 set incremental-search          "true"
 set adjust-open                 "best-fit"
@@ -62,3 +77,5 @@ set font                        "JetBrains Mono"
 map <C-b> feedkeys ":bmark "
 map D set "first-page-column 1:1"
 map <C-d> set "first-page-column 1:2"
+
+set selection-notification false
