@@ -2,7 +2,6 @@
 
 * {
     border: 0px;
-    /* font-family: 'Courier Prime'; */
     font-family: 'Trajan Pro';
     font-size: 14px;
     min-height: 5px;
@@ -10,7 +9,7 @@
 }
 
 window > box {
-    background-color: rgba(0, 0, 0, 0.5);
+    background-color: rgba(0, 0, 0, 1);
 }
 
 window#waybar {
@@ -79,7 +78,7 @@ window#waybar {
 
 #custom-dot {
     font-family: 'Courier Prime';
-    color: @yellow;
+    color: @gray;
     padding: 0px 10px;
 }
 
