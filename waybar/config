@@ -2,9 +2,42 @@
     "output": "eDP-1",
     "position": "top",
         "layer": "bottom",
-        "modules-left": ["hyprland/workspaces", "custom/dot", "custom/basilk", "custom/dot", "custom/basilk_pe", "custom/dot", "battery" ],
-        "modules-right": ["tray", "custom/dot", "network", "custom/dot", "cpu", "custom/dot", "temperature", "custom/dot", "memory", "custom/dot", "pulseaudio", "custom/dot", "clock#date", "custom/dot", "clock"],
-        "modules-center": [ "custom/spotify" ],
+
+        "modules-left":
+        [
+            "hyprland/workspaces",
+            "custom/dot",
+            "custom/basilk",
+            "custom/dot",
+            "custom/basilk_pe",
+            "custom/dot",
+            "battery"
+        ],
+
+        "modules-right":
+        [
+            "tray",
+            "custom/dot",
+            "network",
+            "custom/dot",
+            "cpu",
+            "custom/dot",
+            "temperature",
+            "custom/dot",
+            "memory",
+            "custom/dot",
+            "pulseaudio",
+            "custom/dot",
+            "clock#date",
+            "custom/dot",
+            "clock"
+        ],
+
+        "modules-center":
+        [
+            "custom/spotify",
+            "custom/cava"
+        ],
 
         "hyprland/workspaces": {
             "disable-scroll": true,
@@ -53,6 +86,19 @@
             "format": "❤  {}",
             "on-click": "kitty -e basilk_pe"
         },
+        "custom/cava": {
+            "format": "{}",
+            "exec": "~/.config/waybar/bin/waybarcava.py braille",
+            "return-type": "json",
+            "restart-interval": 0,
+            "max-length": 30,
+            "tooltip": false,
+            "signal": 1,
+            "on-click": "playerctl play-pause",
+            "on-click-right": "playerctl next",
+            "on-scroll-up": "playerctl position 5+",
+            "on-scroll-down": "playerctl position 5-"
+        },
         "disk": {
             "interval": 30,
             "format": " {percentage_used}%",
@@ -94,7 +140,7 @@
             "format": "{icon} {capacity}% - {time}",
             "format-icons": [" ", " ", " ", " ", " "],
             "format-time": "{H}h{M}m",
-            "format-charging": "  {icon} {capacity}% - {time}",
+            "format-charging": " {icon} {capacity}% - {time}",
             "format-full": "",
             "interval": 10,
             "states": {

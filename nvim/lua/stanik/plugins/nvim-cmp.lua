@@ -50,11 +50,11 @@ return {
 
             window = {
                 completion = cmp.config.window.bordered {
-                    border = "none",
+                    border = "single",
                     -- winhighlight = "Normal:CmpPmenu,CursorLine:PmenuSel,Search:None",
                 },
                 documentation = cmp.config.window.bordered {
-                    border = "none",
+                    border = "single",
                     -- winhighlight = "Normal:CmpDoc"
                 },
             },

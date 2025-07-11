@@ -8,12 +8,8 @@
     font-weight: 700;
 }
 
-window > box {
-    background-color: rgba(0, 0, 0, 1);
-}
-
 window#waybar {
-    background-color: @transparent;
+    background-color: rgba(0, 0, 0, .85);
     color: @fg;
 }
 
@@ -35,6 +31,12 @@ window#waybar {
 #workspaces button.active {
     color: @fg;
     opacity: 1;
+
+    border: 2px solid @;
+    /* border-bottom: 0px; */
+    border-left: 0px;
+    border-right: 0px;
+    border-top: 0px;
 }
 
 #workspaces button.urgent {
@@ -62,7 +64,6 @@ window#waybar {
 #workspaces,
 #custom-updates,
 #taskbar {
-    background-color: @bg;
     border-radius: 0px 0px 0 0;
     border-bottom: 0px;
     padding: 0 7px;
@@ -88,6 +89,12 @@ window#waybar {
     padding: 0 10px;
 }
 
+#custom-cava {
+    font-family: 'Courier Prime';
+    border: 0px solid @;
+    border-bottom: 0px;
+    font-weight: 100;
+}
 #custom-spotify {
     border: 0px solid @;
     border-bottom: 0px;
@@ -109,14 +116,22 @@ window#waybar {
 
 #custom-basilk {
     color: @green;
-    border: 0px solid @;
-    border-bottom: 0px;
+    border: 2px solid @;
+
+    /* border-bottom: 0px; */
+    border-left: 0px;
+    border-right: 0px;
+    border-top: 0px;
 }
 
 #custom-basilk_pe {
     color: @yellow;
-    border: 0px solid @;
-    border-bottom: 0px;
+    border: 2px solid @;
+
+    /* border-bottom: 0px; */
+    border-left: 0px;
+    border-right: 0px;
+    border-top: 0px;
 }
 
 #network,
@@ -134,7 +149,12 @@ window#waybar {
 #pulseaudio.warning {
     color: @yellow0;
     border: 2px solid @;
-    border-bottom: 0px;
+
+    /* border-bottom: 0px; */
+    border-left: 0px;
+    border-right: 0px;
+    border-top: 0px;
+
 }
 
 #network.disconnected {
@@ -149,17 +169,30 @@ window#waybar {
 #pulseaudio.critical {
     color: @red0;
     border: 2px solid @;
-    border-bottom: 0px;
+
+    /* border-bottom: 0px; */
+    border-left: 0px;
+    border-right: 0px;
+    border-top: 0px;
 }
 
 #pulseaudio.muted {
     color: @gray;
     border: 2px solid @;
-    border-bottom: 0px;
+
+    /* border-bottom: 0px; */
+    border-left: 0px;
+    border-right: 0px;
+    border-top: 0px;
 }
 
 #battery.low {
     color: @red0;
+
+    /* border-bottom: 0px; */
+    border-left: 0px;
+    border-right: 0px;
+    border-top: 0px;
 }
 
 #tray {
