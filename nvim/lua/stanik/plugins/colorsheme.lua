@@ -1,5 +1,5 @@
 return {
-    "ConorHK/alduin.nvim",
+    "lxvevery1/alduin.nvim",
     priority = 1000, -- Laod this plugin as first
     config = function()
         vim.cmd('let g:alduin_Shout_Become_Ethereal = 1')

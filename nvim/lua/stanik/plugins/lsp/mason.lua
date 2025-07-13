@@ -4,6 +4,7 @@ return {
         "williamboman/mason-lspconfig.nvim",
         "WhoIsSethDaniel/mason-tool-installer.nvim",
     },
+    commit = "2fca78884b126960b41dd5b1b7e35b822a568e5b",
     config = function()
         -- import mason
         local mason = require("mason")
