@@ -42,11 +42,12 @@ vim.api.nvim_create_autocmd({ "LspAttach" }, {
             desc = "(g)o (d)efinition of symbol under cursor (Telescope)",
         })
 
-        -- (g)o (D)eclaration (в telescope пока нет, оставляем стандартный LSP)
+        -- (g)o (D)eclaration
         m("n", "gD", vim.lsp.buf.declaration, {
             noremap = true,
             desc = "(g)o (D)eclaration of symbol under cursor using LSP",
         })
+
 
         -- GR -> nowait
 
@@ -59,7 +60,7 @@ vim.api.nvim_create_autocmd({ "LspAttach" }, {
         ------------------
 
 
-        -- hover information of symbol under cursor (оставляем LSP)
+        -- hover information of symbol under cursor
         m("n", "K", function()
             vim.lsp.buf.hover({ border = "single" })
         end, {
@@ -83,17 +84,7 @@ vim.api.nvim_create_autocmd({ "LspAttach" }, {
             noremap = true,
             desc = "(r)e(n)ame symbol under the cursor and all of its references using LSP",
         })
-
-        local function safe_del(mode, lhs, buf)
-            local ok, _ = pcall(vim.keymap.del, mode, lhs, { buffer = buf })
-            return ok
-        end
-        -- remove default LSP keymaps
-        safe_del('n', 'gri', args.buf)
-        safe_del('n', 'grr', args.buf)
-        safe_del('n', 'gra', args.buf)
-        safe_del('n', 'grn', args.buf)
-    end,
+    end
 })
 
 -------------------------------------------------------------------------------

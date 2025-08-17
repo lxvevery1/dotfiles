@@ -68,11 +68,19 @@ vim.lsp.config("*", {
         vim.notify(vim.lsp.rpc.client_errors[code] .. err, vim.log.levels.ERROR)
     end,
 })
--- enable virtual lines and disable virtual text diagnostics
+-- virtual lines and virtual text diagnostics
 vim.diagnostic.config({
     virtual_text = false,
-    virtual_lines = true,
+    virtual_lines = false,
 })
+vim.keymap.set('n', '<leader>dd', function()
+    vim.diagnostic.open_float(nil, {
+        scope = "line",
+        border = "rounded",
+        header = "Diagnostics",
+        focusable = false
+    })
+end, { noremap = true, silent = true, nowait = true })
 -- enable inlay hints
 vim.lsp.inlay_hint.enable(true)
 -- add LSPs to ignore here (same name as in ./lsps/ folder without the .lua extension)
