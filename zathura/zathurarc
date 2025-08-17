@@ -1,81 +1,60 @@
-# Zathura configuration with custom color scheme (RGBA format)
+# Open document in fit-width mode by default
+set adjust-open "best-fit"
 
-# Notification colors
-set notification-error-bg       "rgba(18, 18, 18, 1)"     # background
-set notification-error-fg       "rgba(177, 66, 66, 1)"     # color1 (red)
-set notification-warning-bg     "rgba(18, 18, 18, 1)"     # background
-set notification-warning-fg     "rgba(228, 154, 68, 1)"    # color3 (yellow/orange)
-set notification-bg             "rgba(18, 18, 18, 1)"     # background
-set notification-fg             "rgba(216, 124, 74, 1)"    # color2 (orange)
+# One page per row by default
+set pages-per-row 1
 
-# Completion colors
-set completion-bg               "rgba(18, 18, 18, .9)"     # background
-set completion-fg               "rgba(245, 245, 245, 1)"   # foreground
-set completion-group-bg         "rgba(18, 18, 18, 1)"     # background
-set completion-group-fg         "rgba(167, 167, 167, 1)"  # color5 (gray)
-set completion-highlight-bg     "rgba(74, 139, 139, 1)"   # color4 (teal)
-set completion-highlight-fg     "rgba(245, 245, 245, 1)"  # foreground
+#stop at page boundries
+set scroll-page-aware "true"
+set smooth-scroll "true"      #not working in zathura 0.4.5
+set scroll-full-overlap 0.01
+set scroll-step 100
 
-# Index mode colors
-set index-bg                    "rgba(18, 18, 18, 1)"     # background
-set index-fg                    "rgba(245, 245, 245, 1)"  # foreground
-set index-active-bg             "rgba(74, 139, 139, 1)"   # color4 (teal)
-set index-active-fg             "rgba(245, 245, 245, 1)"  # foreground
+#zoom settings
+set zoom-min 10
+set guioptions ""
 
-# Input bar colors
-set inputbar-bg                 "rgba(18, 18, 18, 1)"     # background
-set inputbar-fg                 "rgba(245, 245, 245, 1)"  # foreground
+# zathurarc-dark
+set font "inconsolata 15"
+set default-bg "#000000" #00
+set default-fg "#F7F7F6" #01
 
-# Status bar colors
-set statusbar-bg                "rgba(18, 18, 18, 1)"     # background
-set statusbar-fg                "rgba(245, 245, 245, 1)"  # foreground
+set statusbar-fg "#B0B0B0" #04
+set statusbar-bg "#202020" #01
 
-# Highlight colors (keeping transparency)
-set highlight-color             "rgba(228, 154, 68, 0.5)"  # color3 with transparency
-set highlight-active-color      "rgba(216, 124, 74, 0.5)"  # color2 with transparency
+set inputbar-bg "#151515" #00 currently not used
+set inputbar-fg "#FFFFFF" #02
 
-# Default colors
-set default-bg                  "rgba(18, 18, 18, .9)"     # background
-set default-fg                  "rgba(235, 219, 178, 1)"  # foreground
-set render-loading              true
-set render-loading-bg           "rgba(18, 18, 18, 1)"     # background
-set render-loading-fg           "rgba(245, 245, 245, 1)"  # foreground
+set notification-error-bg "#AC4142" #08
+set notification-error-fg "#151515" #00
 
-# Recolor settings for PDFs
-set recolor-lightcolor          "rgba(18, 18, 18, 0)"     # background
-set recolor-darkcolor           "rgba(235, 219, 178, 1)"  # foreground
-set recolor-keephue             true          # keep original colors
-set recolor                     true          # enable recoloring
+set notification-warning-bg "#AC4142" #08
+set notification-warning-fg "#151515" #00
 
-# Border colors (for GUI version)
-set window-active-border        "rgba(177, 66, 66, 1)"    # active_border_color
-set window-inactive-border      "rgba(148, 148, 148, 1)"  # inactive_border_color
+set highlight-color "#F4BF75" #0A
+set highlight-active-color "#6A9FB5" #0D
 
-# Border colors (for GUI version)
-set window-active-border        "#B14242"     # active_border_color
-set window-inactive-border      "#949494"     # inactive_border_color
+set completion-highlight-fg "#151515" #02
+set completion-highlight-bg "#90A959" #0C
 
-set incremental-search          "true"
-set adjust-open                 "best-fit"
+set completion-bg "#303030" #02
+set completion-fg "#E0E0E0" #0C
 
-set window-title-home-tilde     "true"
-set selection-clipboard         "clipboard"
+set notification-bg "#90A959" #0B
+set notification-fg "#151515" #00
 
-set statusbar-basename          "true"
-set statusbar-home-tilde        "true"
-set statusbar-h-padding         "5"
-set statusbar-v-padding         "5"
+set recolor "true"
+set recolor-lightcolor "#000000" #00
+set recolor-darkcolor "#E0E0E0" #06
+set recolor-reverse-video "true"
+set recolor-keephue "true"
 
-set window-height               3000
-set window-width                3000
+set render-loading "false"
+set scroll-step 50
+unmap f
+map f toggle_fullscreen
+map [fullscreen] f toggle_fullscreen
 
-set synctex-editor-command      "vim"
-
-set font                        "JetBrains Mono"
-
-
-map <C-b> feedkeys ":bmark "
-map D set "first-page-column 1:1"
-map <C-d> set "first-page-column 1:2"
-
-set selection-notification false
+# smooth scrolling
+map k feedkeys "<C-Up>"
+map j feedkeys "<C-Down>"

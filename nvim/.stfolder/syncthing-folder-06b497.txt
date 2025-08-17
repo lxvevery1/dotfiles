@@ -1,5 +1,0 @@
-# This directory is a Syncthing folder marker.
-# Do not delete.
-
-folderID: imczr-7tuml
-created: 2024-10-05T21:17:19+03:00

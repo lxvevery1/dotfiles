@@ -58,14 +58,14 @@
         },
         "custom/spotify": {
             "exec": "/home/stanik/scripts/waybar/music_panel.sh",
-            "exec-if": "pgrep mpv",
+            "exec-if": "pgrep mpv || pgrep spotify",
             "format": "♪ {text}",
             "states": {
                 "playing": "Playing",
                 "paused": "Paused",
                 "stopped": "Stopped"
             },
-            "on-click": "playerctl -p mpv play-pause",
+            "on-click": "playerctl -p mpv play-pause || playerctl -p spotify play-pause",
             "on-scroll-up": "playerctl next",
             "on-scroll-down": "playerctl previous",
             "return-type": "json",

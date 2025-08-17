@@ -1,2 +1,1 @@
-require("stanik.core")
-require("stanik.lazy")
+require("cgnvim")
