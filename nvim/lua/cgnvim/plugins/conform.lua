@@ -14,7 +14,7 @@ return {
                     args = { "-config", "~/.config/tidy/tidy.conf" },
                 },
                 ["csharpier"] = {
-                    command = "csharpier",
+                    command = "dotnet csharpier",
                     args = { "--write-stdout" },
                     stdin = true,
                 },

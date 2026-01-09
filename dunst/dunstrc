@@ -12,13 +12,13 @@ word_wrap            = no
 markup               = full
 
 ### ─── Timing ─────────────────────────────────────────────────
-timeout              = 5
+timeout              = 10
 
 ### ─── Geometry & Placement ───────────────────────────────────
 origin               = bottom-right
 offset               = 0x0
 scale                = 2
-layer                = bottom
+layer                = overlay
 notification_height  = 0
 width                = (256, 768)
 separator_height     = 2

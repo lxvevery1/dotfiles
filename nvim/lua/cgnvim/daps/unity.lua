@@ -20,13 +20,9 @@ dap.adapters.unity = function(cb, config)
         command = "mono",
         -- adjust unity-debug-adapter.exe path
         args = {
-            -- get Unity debug adapter from: https://github.com/walcht/unity-dap
-            "/home/stanik/downloads/netcore_debug_adapter/netcoredbg/netcoredbg",
-            "--interpreter=vscode",
-            -- optional log level argument: trace | debug | info | warn | error | critical | none
-            "--log-level=warn",
-            -- optional path to log file (logs to stderr in case this is not provided)
-            -- "--log-file=<path-to-log-file.txt>",
+            "/home/stanik/.local/share/dap/Release/unity-debug-adapter.exe",
+            "--log-level=none", -- optional log level argument: tace | debug | info | warn | error | critical | none
+            -- "--log-file=<path-to-log-file>",  -- optional path to log file (logs to stderr in case this is not provided)
         },
     })
 end

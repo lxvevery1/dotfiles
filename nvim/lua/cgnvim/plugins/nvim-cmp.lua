@@ -8,6 +8,10 @@ return {
         "hrsh7th/cmp-path",
     },
     opts = function()
-        return require("cgnvim.configs.nvim-cmp")
+        local cmp = require("cmp")
+        local opts = require("cgnvim.configs.nvim-cmp")
+        opts.mapping["<Tab>"] = cmp.config.disable
+        opts.mapping["<S-Tab>"] = cmp.config.disable
+        return opts
     end,
 }

@@ -33,7 +33,8 @@ for_window [class=".*"] title_format " "
 for_window [class=".*"] border pixel 1.5
 
 # start a terminal
-bindsym $mod+Return exec alacritty
+# bindsym $mod+Return exec alacritty
+bindsym $mod+Return exec kitty --single-instance
 
 # kill focused window
 bindsym $mod+q kill
@@ -93,7 +94,8 @@ bindsym $mod+space focus mode_toggle
 bindsym $mod+a focus parent
 
 # focus the child container
-#bindsym $mod+d focus child
+bindsym $mod+Shift+S exec --no-startup-id sh -c 'file="$HOME/pics/screenshots/screenshot_$(date +%Y-%m-%d_%H-%M-%S).png" && scrot -s "$file" && xclip -selection clipboard -t image/png -i "$file"'
+bindsym Print exec --no-startup-id sh -c 'file="$HOME/pics/screenshots/screenshot_$(date +%Y-%m-%d_%H-%M-%S).png" && scrot "$file" && xclip -selection clipboard -t image/png -i "$file"'
 
 set $ws1 "1"
 set $ws2 "2"
@@ -130,6 +132,9 @@ bindsym $mod+n exec "python /home/stanik/scripts/i3Instances/newVimNote.py"
 bindsym $mod+t exec "python /home/stanik/scripts/i3Instances/newBasilk.py"
 # Basilk_PE (Task maanger for Physical education) instance
 # bindsym $mod+e exec "python /home/stanik/scripts/i3Instances/newBasilk_pe.py"
+
+# clipboard history
+bindsym $mod+i exec "python /home/stanik/scripts/i3Instances/cliphist.py"
 
 # move focused container to workspace
 bindsym $mod+Shift+1 move container to workspace number $ws1

@@ -7,20 +7,20 @@ local m = vim.keymap.set
 -- NVIM-TREE
 -----------------------------
 -- Open nvim-tree on directory or no-name buffer
-vim.api.nvim_create_autocmd({ "VimEnter" }, {
-    callback = function(args)
-        local is_dir = vim.fn.isdirectory(args.file) == 1
-        local is_no_name = args.file == "" and vim.bo[args.buf].buftype == ""
-        if is_dir then
-            vim.cmd.cd(args.file)
-            require("nvim-tree.api").tree.open()
-            return
-        end
-        if is_no_name then
-            require("nvim-tree.api").tree.toggle({ focus = false, find_file = true })
-        end
-    end,
-})
+-- vim.api.nvim_create_autocmd({ "VimEnter" }, {
+--     callback = function(args)
+--         local is_dir = vim.fn.isdirectory(args.file) == 1
+--         local is_no_name = args.file == "" and vim.bo[args.buf].buftype == ""
+--         if is_dir then
+--             vim.cmd.cd(args.file)
+--             require("nvim-tree.api").tree.open()
+--             return
+--         end
+--         if is_no_name then
+--             require("nvim-tree.api").tree.toggle({ focus = false, find_file = true })
+--         end
+--     end,
+-- })
 
 -----------------------------
 -- LSP

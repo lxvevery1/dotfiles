@@ -238,6 +238,7 @@ framerate = 30
 [input]
 method = pulse
 source = auto
+bar_spacing = 2
 [output]
 method = raw
 raw_target = {CAVA_FIFO}

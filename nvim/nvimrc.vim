@@ -10,10 +10,10 @@ syntax on
 """"""""""""""""
 
 " Set ctrl+c/v/x bindings
-vmap <C-c>  "+yi
-vmap <C-x>  "+c
-vmap <C-v>  c<ESC>"+p
-imap <C-v>  <C-r><C-o>+
+vmap <C-c> "+yi
+vmap <C-x> "+c
+vmap <C-v> c<ESC>"+p
+imap <C-v> <C-r><C-o>+
 
 " Select word under cursor (doesn't properly work)
 "nnoremap <C-w>      viw
@@ -71,14 +71,6 @@ augroup END
 " Functions "
 """""""""""""
 
-" Text formating (removing empty space at the EOL)
-function! TrimWhitespace()
-    let l:view = winsaveview()
-    silent! %s/\s\+$//e
-    silent! %s/\($\n\s*\)\+\%$//e
-    call winrestview(l:view)
-endfunction
-
 " Restore cursor position, window position, and last search after running a
 " command.
 function! Preserve(command)
@@ -107,8 +99,6 @@ function! Preserve(command)
     call setpos('.', cursor_position)
 endfunction
 
-autocmd BufWritePre * :call TrimWhitespace()
-
 """"""""""""
 " Commands "
 """"""""""""
@@ -123,7 +113,6 @@ cnoreabbrev W w
 """"""""
 
 " Each line have it's index
-set nu
 set rnu
 " Now empty spaces are highlighting with symbol
 set list
@@ -131,7 +120,7 @@ set cursorline
 set hlsearch
 
 " Mouse now active
-set mouse=a
+set mouse=
 
 " Vim command line tab autocompletion
 set nocompatible
@@ -166,34 +155,3 @@ set foldmarker={,}
 set foldlevelstart=99
 " Wayland clipboard
 xnoremap <silent> <leader>y y:call system("wl-copy --trim-newline", @*)<cr>:call system("wl-copy -p --trim-newline", @*)<cr>
-
-
-""""""""""""""
-" Highlights "
-""""""""""""""
-
-" tranparent bg
-hi Normal guibg=NONE ctermbg=NONE
-
-hi ColorColumn                      ctermbg=red         ctermfg=black
-" italic comments
-hi Comment      cterm=italic
-hi CursorLine   cterm=bold          ctermbg=NONE        ctermfg=NONE
-hi CursorLineNr cterm=bold          ctermbg=NONE        ctermfg=NONE
-hi DiffAdd      cterm=bold          ctermbg=blue        ctermfg=black
-hi DiffChange   cterm=bold          ctermbg=225         ctermfg=black
-hi DiffDelete   cterm=bold          ctermbg=159         ctermfg=black
-hi Error                            ctermbg=red         ctermfg=black
-hi ErrorMsg                         ctermbg=red         ctermfg=black
-hi LineNr                                               ctermfg=darkblue
-hi Search       cterm=bold          ctermbg=yellow      ctermfg=black
-hi SignColumn   cterm=standout      ctermbg=white       ctermfg=black
-hi SpellBad     cterm=underline     ctermbg=NONE        ctermfg=red
-hi SpellLocal   cterm=reverse       ctermbg=black
-hi SpellCap     cterm=bold          ctermbg=NONE        ctermfg=blue
-hi SpellRare    cterm=reverse       ctermbg=darkblue
-" Suggestion menu
-hi Pmenu                            ctermbg=0           ctermfg=15
-" Brackets match
-hi MatchParen   cterm=bold          ctermbg=black       ctermfg=white
-hi link         YcmWarningText      SpellCap

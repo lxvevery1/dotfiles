@@ -280,3 +280,21 @@ hi Pmenu ctermbg=0 ctermfg=15
 hi MatchParen cterm=bold ctermbg=black ctermfg=white
 hi link YcmWarningText SpellCap
 ]])
+
+
+-- Return to previous line with '~~'
+vim.keymap.set("n", "``", "`'", { noremap = true, desc = "Go back to previous line" })
+
+vim.keymap.set(
+    'n',
+    'j',
+    [[v:count ? (v:count >= 3 ? "m'" . v:count : '') . 'j' : 'gj']],
+    { noremap = true, expr = true }
+)
+
+vim.keymap.set(
+    'n',
+    'k',
+    [[v:count ? (v:count >= 3 ? "m'" . v:count : '') . 'k' : 'gk']],
+    { noremap = true, expr = true }
+)
