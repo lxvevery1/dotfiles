@@ -109,13 +109,13 @@ set $ws9 "9"
 set $ws10 "10"
 
 # Unity not refresh window fix
-set $unity-refresh exec i3-msg [class="Unity"] fullscreen toggle; exec i3-msg [class="Unity"] fullscreen toggle
+# set $unity-refresh exec i3-msg [class="Unity"] fullscreen toggle; exec i3-msg [class="Unity"] fullscreen toggle
 
 # switch to workspace
 bindsym $mod+1 workspace number $ws1
 bindsym $mod+2 workspace number $ws2
 bindsym $mod+3 workspace number $ws3
-bindsym $mod+4 workspace number $ws4; $unity-refresh
+bindsym $mod+4 workspace number $ws4
 bindsym $mod+5 workspace number $ws5
 bindsym $mod+6 workspace number $ws6
 bindsym $mod+7 workspace number $ws7
@@ -132,6 +132,30 @@ bindsym $mod+n exec "python /home/stanik/scripts/i3Instances/newVimNote.py"
 bindsym $mod+t exec "python /home/stanik/scripts/i3Instances/newBasilk.py"
 # Basilk_PE (Task maanger for Physical education) instance
 # bindsym $mod+e exec "python /home/stanik/scripts/i3Instances/newBasilk_pe.py"
+
+# Volume control
+bindsym XF86AudioRaiseVolume exec --no-startup-id amixer -M sset Master 5%+
+bindsym XF86AudioLowerVolume exec --no-startup-id amixer -M sset Master 5%-
+bindsym XF86AudioMute exec --no-startup-id wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle
+
+# Media control (MPRIS via playerctld)
+bindsym XF86AudioPlay exec --no-startup-id \
+  dbus-send --print-reply \
+  --dest=org.mpris.MediaPlayer2.playerctld \
+  /org/mpris/MediaPlayer2 \
+  org.mpris.MediaPlayer2.Player.PlayPause
+
+bindsym XF86AudioNext exec --no-startup-id \
+  dbus-send --print-reply \
+  --dest=org.mpris.MediaPlayer2.playerctld \
+  /org/mpris/MediaPlayer2 \
+  org.mpris.MediaPlayer2.Player.Next
+
+bindsym XF86AudioPrev exec --no-startup-id \
+  dbus-send --print-reply \
+  --dest=org.mpris.MediaPlayer2.playerctld \
+  /org/mpris/MediaPlayer2 \
+  org.mpris.MediaPlayer2.Player.Previous
 
 # clipboard history
 bindsym $mod+i exec "python /home/stanik/scripts/i3Instances/cliphist.py"
@@ -193,3 +217,16 @@ for_window [class="firefox"] move to workspace $ws2
 for_window [class="unity"] move to workspace $ws4
 for_window [class="Spotify"] move to workspace $ws8
 for_window [class="TelegramDesktop"] move to workspace $ws9
+
+
+# Assign workspace to monitors
+workspace 1 output eDP-1
+workspace 2 output HDMI-1
+workspace 3 output eDP-1
+workspace 4 output eDP-1
+workspace 5 output eDP-1
+workspace 6 output HDMI-1
+workspace 7 output HDMI-1
+workspace 8 output HDMI-1
+workspace 9 output HDMI-1
+workspace 10 output HDMI-1
