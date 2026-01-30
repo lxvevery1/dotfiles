@@ -298,3 +298,7 @@ vim.keymap.set(
     [[v:count ? (v:count >= 3 ? "m'" . v:count : '') . 'k' : 'gk']],
     { noremap = true, expr = true }
 )
+
+
+vim.keymap.set("n", "<leader>ob", "f{i<CR><Esc>%i<CR><ESC>O", { noremap = true })
+vim.keymap.set("n", "<leader>cb", "jV%dkA{ }<ESC>", { noremap = true })
