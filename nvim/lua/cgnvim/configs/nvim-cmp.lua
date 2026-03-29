@@ -1,4 +1,4 @@
-local cmp = require("cmp")
+local cmp = require("blink.cmp")
 
 local kind_icons = {
     Text = "",

@@ -39,7 +39,7 @@ min_icon_size        = 0
 max_icon_size        = 48
 transparency         = 50
 
-background = "#12121210"
+background = "#121212ff"
 foreground = "#f5f5f5ff"
 
 ### ─── Fonts & Text ───────────────────────────────────────────

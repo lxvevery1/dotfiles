@@ -331,7 +331,7 @@ map kitty_mod+space kitty_scrollback_nvim
 
 #: Mouse
 
-# mouse_hide_wait 3.0
+mouse_hide_wait 3.0
 
 #: Hide mouse cursor after the specified number of seconds of the
 #: mouse not being used. Set to zero to disable mouse cursor hiding.
@@ -1030,7 +1030,7 @@ active_tab_font_style   bold
 
 #: The foreground and background colors.
 
-background_opacity 0.95
+background_opacity 0.9
 
 #: The opacity of the background. A number between zero and one, where
 #: one is opaque and zero is fully transparent. This will only work if
@@ -1558,7 +1558,7 @@ macos_option_as_alt yes
 #: configuration will change this value only for newly created OS
 #: windows.
 
-linux_display_server Wayland
+# linux_display_server wayland
 
 #: Choose between Wayland and X11 backends. By default, an appropriate
 #: backend based on the system state is chosen automatically. Set it
@@ -2311,10 +2311,12 @@ map kitty_mod+backspace change_font_size all 0
 # BEGIN_KITTY_THEME
 include current-theme.conf
 # END_KITTY_THEME
-
-
+modify_font cell_width 100%
+modify_font cell_height +1px
+modify_font underline_position +4
+text_composition_strategy legacy
 # BEGIN_KITTY_FONTS
-font_family      family="InputMonoExIta Nerd Font"
+font_family      family="Courier Prime"
 bold_font        auto
 italic_font      auto
 bold_italic_font auto

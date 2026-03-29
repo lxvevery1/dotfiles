@@ -2,10 +2,10 @@
 
 * {
     border: 0px;
-    font-family: 'InputMono Nerd Font';
-    font-size: 12px;
-    min-height: 0px;
-    font-weight: 500;
+    font-family: 'Trajan Pro';
+    font-size: 14px;
+    min-height: 5px;
+    font-weight: 800;
 }
 
 window#waybar {
@@ -66,7 +66,7 @@ window#waybar {
 #taskbar {
     border-radius: 0px 0px 0 0;
     border-bottom: 0px;
-    padding: 0 0px;
+    padding: 0 7px;
     margin: 0 0px;
 }
 
@@ -80,7 +80,7 @@ window#waybar {
 #custom-dot {
     font-family: 'Courier Prime';
     color: @gray;
-    padding: 0px 2px;
+    padding: 0px 10px;
 }
 
 #bg-module {

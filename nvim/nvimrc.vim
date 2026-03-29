@@ -34,8 +34,9 @@ nnoremap <silent> <c-h> :wincmd h<CR>
 nnoremap <silent> <c-l> :wincmd l<CR>
 
 " mv lines with j and k
-nnoremap <silent> <C-S-J> :m+1<CR>
-nnoremap <silent> <C-S-K> :m-2<CR>
+nnoremap <silent> <C-S-K> :m+1<CR>
+nnoremap <silent> <C-S-J> :m-2<CR>
+
 
 nnoremap <C-F> :if &foldlevel == 1 \| set foldlevel=99 \| else \| set foldlevel=1 \| endif<CR>
 

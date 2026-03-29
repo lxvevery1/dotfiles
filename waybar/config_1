@@ -9,6 +9,8 @@
             "custom/dot",
             "custom/basilk",
             "custom/dot",
+            "custom/basilk_pe",
+            "custom/dot",
             "battery"
         ],
 
@@ -33,7 +35,8 @@
 
         "modules-center":
         [
-            "custom/spotify"
+            "custom/spotify",
+            "custom/cava"
         ],
 
         "hyprland/workspaces": {
@@ -43,20 +46,20 @@
         },
         "hyprland/window": {
             "max-length": 60,
-            "format": "{}",
+            "format": "  {}",
             "rewrite": {
-                "":"empty"
+                " ":" empty"
             },
             "separate-outputs": true
         },
         "custom/dot":{
-            "format": " ",
+            "format": "::",
             "interval": 100
         },
         "custom/spotify": {
             "exec": "/home/stanik/scripts/waybar/music_panel.sh",
             "exec-if": "pgrep mpv || pgrep spotify",
-            "format": "{text}",
+            "format": "♪ {text}",
             "states": {
                 "playing": "Playing",
                 "paused": "Paused",
@@ -75,12 +78,12 @@
         },
         "custom/basilk": {
             "exec": "/home/stanik/scripts/waybar/basilk_panel.sh",
-            "format": "{}",
+            "format": "  {}",
             "on-click": "kitty -e basilk"
         },
         "custom/basilk_pe": {
             "exec": "/home/stanik/scripts/waybar/basilk_pe_panel.sh",
-            "format": "{}",
+            "format": "❤  {}",
             "on-click": "kitty -e basilk_pe"
         },
         "custom/cava": {
@@ -98,19 +101,19 @@
         },
         "disk": {
             "interval": 30,
-            "format": "{percentage_used}%",
+            "format": " {percentage_used}%",
             "path": "/"
         },
         "sway/mode": {
             "format": "<span style=\"italic\">{}</span>"
         },
         "tray": {
-            "spacing": 8,
+            "spacing": 10,
             "format": "::"
         },
         "clock#date": {
             "timezone": "Europe/Moscow",
-            "format":"{:%d %b}",
+            "format":"  {:%d %b}",
             "interval": 1,
             "on-click": "zenity --calendar"
         },
@@ -122,7 +125,7 @@
         },
         "cpu": {
             "interval": 1,
-            "format": "{usage}%",
+            "format": "  {usage}%",
             "states": {
                 "warning": 50,
                 "critical": 80
@@ -130,14 +133,14 @@
         },
         "temperature": {
             "critical-threshold": 80,
-            "format-critical": "{temperatureC}°C",
-            "format": "{temperatureC}°C"
+            "format-critical": " {temperatureC}°C",
+            "format": " {temperatureC}°C"
         },
         "battery": {
             "format": "{icon} {capacity}% - {time}",
             "format-icons": [" ", " ", " ", " ", " "],
             "format-time": "{H}h{M}m",
-            "format-charging": "{icon} {capacity}% - {time}",
+            "format-charging": " {icon} {capacity}% - {time}",
             "format-full": "",
             "interval": 10,
             "states": {
@@ -149,17 +152,17 @@
         },
         "memory": {
             "interval": 1,
-            "format": "{used:}M",
+            "format": "RAM {used:}MiB",
             "states": {
                 "warning": 75,
                 "critical": 90
             }
         },
         "network": {
-            "format-wifi": "W ({signalStrength}%)",
-            "format-ethernet": "E",
-            "format-linked": "{{ifname} (No IP)",
-            "format-disconnected": "D",
+            "format-wifi": "  ({signalStrength}%)",
+            "format-ethernet": "󰈁",
+            "format-linked": "{󰄡 {ifname} (No IP)",
+            "format-disconnected": " ",
             "format-alt": "{ifname}: {ipaddr}/{cidr}"
         },
         "pulseaudio/slider": {
@@ -169,10 +172,10 @@
         },
         "pulseaudio": {
             "scroll-step": 5,
-            "format": "{volume}%",
-            "format-muted": "M",
+            "format": "{icon} {volume}%",
+            "format-muted": " ",
             "format-icons": {
-                "default": ["", "", ""]
+                "default": ["", " ", " "]
             },
             "on-click": "pavucontrol",
             "on-click-middle": "pamixer -t",

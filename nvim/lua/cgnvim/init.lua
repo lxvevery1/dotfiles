@@ -62,7 +62,7 @@ end
 -----------------------------
 -- default (i.e., inherited by all) LSP config
 vim.lsp.config("*", {
-    capabilities = require("cmp_nvim_lsp").default_capabilities(),
+    capabilities = require("blink.cmp").get_lsp_capabilities(capabilities),
     root_markers = { ".git" },
     on_error = function(code, err)
         vim.notify(vim.lsp.rpc.client_errors[code] .. err, vim.log.levels.ERROR)

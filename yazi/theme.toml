@@ -5,7 +5,7 @@
 cwd = { fg = "#dfdfaf" }  # Cyan from Rusty Alduin
 
 # Hovered
-hovered         = { fg = "#1c1c1c", bg = "#dfdfaf" }  # Soft Orange bg
+hovered         = { fg = "#000000", bg = "#dfdfaf", bold = true }  # Soft Orange bg
 preview_hovered = { underline = true }
 
 # Find

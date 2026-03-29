@@ -61,6 +61,10 @@ telescope.setup({
         },
         file_ignore_patterns = ignore_filetypes_list,
         layout_strategy = "horizontal",
+        layout_config = {
+            width = 0.99,
+            height = 0.99
+        },
         file_sorter = require('telescope.sorters').get_fuzzy_file,
         generic_sorter = require('telescope.sorters').get_generic_fuzzy_sorter,
     },
@@ -69,7 +73,7 @@ telescope.setup({
             fuzzy = true, -- enable fuzzy
             override_generic_sorter = true,
             override_file_sorter = true,
-            case_mode = "smart_case", -- "smart_case" | "ignore_case" | "respect_case"
+            case_mode = "ignore_case", -- "smart_case" | "ignore_case" | "respect_case"
         }
     },
 })
@@ -79,11 +83,11 @@ telescope.load_extension("fzf")
 -- set keymaps
 local keymap = vim.keymap -- for conciseness
 
-keymap.set("n", "<leader>ff", "<cmd>Telescope find_files<cr>", { desc = "Fuzzy find files in cwd" })
-keymap.set("n", "<leader>fr", "<cmd>Telescope oldfiles<cr>", { desc = "Fuzzy find recent files" })
-keymap.set("n", "<leader>fs", "<cmd>Telescope live_grep<cr>", { desc = "Find string in cwd" })
-keymap.set("n", "<leader>fc", "<cmd>Telescope grep_string<cr>", { desc = "Find string under cursor in cwd" })
-keymap.set("n", "<leader>ft", "<cmd>TodoTelescope<cr>", { desc = "Find todos" })
-keymap.set("n", "<leader>fe", "<cmd>Telescope diagnostics<cr>", { desc = "List of warnings/errors in project" })
-keymap.set("n", "<leader>fw", "<cmd>Telescope diagnostics<cr>", { desc = "List of warnings/errors in project" })
-keymap.set("n", "<leader>xQ", "<cmd>Trouble quickfix<cr>", { desc = "Open old quickfix window" })
+keymap.set("n", "<leader>ff", "<cmd>Telescope find_files theme=ivy<cr>", { desc = "Fuzzy find files in cwd" })
+keymap.set("n", "<leader>fr", "<cmd>Telescope oldfiles theme=ivy<cr>", { desc = "Fuzzy find recent files" })
+keymap.set("n", "<leader>fs", "<cmd>Telescope live_grep theme=ivy<cr>", { desc = "Find string in cwd" })
+keymap.set("n", "<leader>fc", "<cmd>Telescope grep_string theme=ivy<cr>", { desc = "Find string under cursor in cwd" })
+keymap.set("n", "<leader>ft", "<cmd>TodoTelescope theme=ivy<cr>", { desc = "Find todos" })
+keymap.set("n", "<leader>fe", "<cmd>Telescope diagnostics theme=ivy<cr>", { desc = "List of warnings/errors in project" })
+keymap.set("n", "<leader>fw", "<cmd>Telescope diagnostics theme=ivy<cr>", { desc = "List of warnings/errors in project" })
+keymap.set("n", "<leader>xQ", "<cmd>Trouble quickfix theme=ivy<cr>", { desc = "Open old quickfix window" })

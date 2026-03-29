@@ -1,0 +1,41 @@
+* {
+    border: none;
+    border-radius: 0;
+    font-family: monospace;
+    font-size: 12px;
+    min-height: 0;
+}
+
+window#waybar {
+    background: #222222;
+    color: #ffffff;
+}
+
+#workspaces button {
+    padding: 0 6px;
+    color: #888888;
+    background: transparent;
+}
+
+#workspaces button.focused {
+    background: #285577;
+    color: #ffffff;
+}
+
+#workspaces button.urgent {
+    background: #E67E80;
+    color: #ffffff;
+}
+
+#network,
+#disk,
+#battery,
+#temperature,
+#memory,
+#load,
+#clock,
+#custom-dhcp,
+#custom-vpnc,
+#custom-vpn {
+    padding: 0 8px;
+}

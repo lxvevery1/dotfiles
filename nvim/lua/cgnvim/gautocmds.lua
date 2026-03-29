@@ -4,25 +4,6 @@ plugin - hence the g in this file's name)]]
 local m = vim.keymap.set
 
 -----------------------------
--- NVIM-TREE
------------------------------
--- Open nvim-tree on directory or no-name buffer
--- vim.api.nvim_create_autocmd({ "VimEnter" }, {
---     callback = function(args)
---         local is_dir = vim.fn.isdirectory(args.file) == 1
---         local is_no_name = args.file == "" and vim.bo[args.buf].buftype == ""
---         if is_dir then
---             vim.cmd.cd(args.file)
---             require("nvim-tree.api").tree.open()
---             return
---         end
---         if is_no_name then
---             require("nvim-tree.api").tree.toggle({ focus = false, find_file = true })
---         end
---     end,
--- })
-
------------------------------
 -- LSP
 -----------------------------
 vim.api.nvim_create_autocmd({ "LspAttach" }, {
@@ -52,9 +33,14 @@ vim.api.nvim_create_autocmd({ "LspAttach" }, {
         -- GR -> nowait
 
         -- gr → Telescope LSP References
-        vim.keymap.set('n', 'gr', telescope_builtin.lsp_references, { desc = 'Telescope LSP References', nowait = true })
+        local builtin = require("telescope.builtin")
+        local themes = require("telescope.themes")
 
-        -- gR → Quickfix LSP References (стандартный)
+        vim.keymap.set("n", "gr", function()
+            builtin.lsp_references(themes.get_ivy())
+        end, { noremap = true, silent = true, desc = "LSP References (Ivy)" })
+
+        -- gR → Quickfix LSP References
         vim.keymap.set('n', 'gR', vim.lsp.buf.references, { desc = 'Quickfix LSP References', nowait = true })
 
         ------------------

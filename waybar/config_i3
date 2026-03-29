@@ -1,0 +1,88 @@
+{
+    "layer": "top",
+    "position": "top",
+    "height": 24,
+    "spacing": 0,
+
+    "modules-left": ["hyprland/workspaces"],
+    "modules-right": [
+        "custom/i3status",
+    ],
+
+    "custom/i3status": {
+        "exec": "i3status -c ~/.config/i3status/i3status.conf | head -n 3 | tail -n 1 | jq -r 'map(.full_text) | join(\" | \")'",
+        "interval": 1
+    },
+
+    "network": {
+        "interface": "wlan0",
+        "format-wifi": "W: ({signalStrength}% at {essid}, {bitrate}) {ipaddr}",
+        "format-ethernet": "E: {ipaddr} ({bandwidthUpBits})",
+        "format-disconnected": "W: down",
+        "interval": 5
+    },
+
+    "disk": {
+        "path": "/",
+        "format": "{free}",
+        "interval": 30
+    },
+
+    "battery": {
+        "bat": "BAT0",
+        "format": "{status} {capacity}% {time}",
+        "format-full": "☻ FULL",
+        "format-charging": "⚡ CHR {capacity}% {time}",
+        "format-discharging": "🔋 BAT {capacity}% {time}",
+        "format-plugged": "☻ IDLE",
+        "format-alt": "{capacity}%",
+        "interval": 5
+    },
+
+    "temperature": {
+        "hwmon-path": "/sys/devices/platform/coretemp.0/temp1_input",
+        "format": "T: {temperatureC}°C",
+        "interval": 5
+    },
+
+    "memory": {
+        "format": "{used}",
+        "format-warning": "MEMORY: {free}",
+        "interval": 5
+    },
+
+    "cpu": {
+        "interval": 5
+    },
+
+    "load": {
+        "format": "{load5}",
+        "interval": 5
+    },
+
+    "clock": {
+        "format": "%Y-%m-%d %H:%M:%S",
+        "interval": 1
+    },
+
+    "clock#berlin": {
+        "timezone": "Europe/Berlin",
+        "format": "%Y-%m-%d %H:%M:%S %Z",
+        "interval": 1
+    },
+
+    "custom/dhcp": {
+        "exec": "pgrep -f dhclient > /dev/null && echo DHCP",
+        "interval": 5
+    },
+
+    "custom/vpnc": {
+        "exec": "pgrep -f vpnc > /dev/null && echo VPNC",
+        "interval": 5
+    },
+
+    "custom/vpn": {
+        "exec": "[ -d /proc/sys/net/ipv4/conf/tun0 ] && echo VPN",
+        "interval": 5
+    }
+}
