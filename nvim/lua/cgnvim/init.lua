@@ -103,8 +103,6 @@ end
 
 local builtin = require("telescope.builtin")
 
--- override default LSP references keymap
-vim.keymap.set("n", "gr", builtin.lsp_references, { noremap = true, silent = true, desc = "LSP References (Telescope)" })
 -----------------------------
 -- DAPs INITIALIZATION
 -----------------------------

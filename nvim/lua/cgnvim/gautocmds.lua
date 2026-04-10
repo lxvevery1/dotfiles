@@ -36,9 +36,8 @@ vim.api.nvim_create_autocmd({ "LspAttach" }, {
         local builtin = require("telescope.builtin")
         local themes = require("telescope.themes")
 
-        vim.keymap.set("n", "gr", function()
-            builtin.lsp_references(themes.get_ivy())
-        end, { noremap = true, silent = true, desc = "LSP References (Ivy)" })
+        vim.keymap.set("n", "gr", function() builtin.lsp_references(themes.get_ivy())
+        end, { noremap = true, silent = true, desc = "LSP References (Ivy)", nowait = true})
 
         -- gR → Quickfix LSP References
         vim.keymap.set('n', 'gR', vim.lsp.buf.references, { desc = 'Quickfix LSP References', nowait = true })
