@@ -115,6 +115,7 @@ cnoreabbrev W w
 
 " Each line have it's index
 set rnu
+
 " Now empty spaces are highlighting with symbol
 set list
 set cursorline
@@ -128,7 +129,7 @@ set nocompatible
 
 " Set tabulation char count == 4
 set tabstop=4
-set softtabstop=4
+set softtabstop=
 set shiftwidth=4
 set expandtab
 
@@ -154,5 +155,8 @@ set whichwrap+=h,l
 set foldmethod=marker
 set foldmarker={,}
 set foldlevelstart=99
+
+set lcs+=space:·
+
 " Wayland clipboard
 xnoremap <silent> <leader>y y:call system("wl-copy --trim-newline", @*)<cr>:call system("wl-copy -p --trim-newline", @*)<cr>

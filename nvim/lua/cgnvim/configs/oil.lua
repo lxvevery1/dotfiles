@@ -202,4 +202,4 @@ require("oil").setup({
     },
 })
 
-vim.keymap.set('n', '<leader>o', '<CMD>Oil<CR>', {desc = 'Open Oil'});
+vim.keymap.set('n', '<leader>oo', '<CMD>Oil<CR>', {desc = 'Open Oil'});

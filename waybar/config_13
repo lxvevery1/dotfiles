@@ -1,0 +1,177 @@
+{
+    "output": ["eDP-1", "HDMI-A-1"],
+    "position": "top",
+        "layer": "bottom",
+
+        "modules-left":
+        [
+            "hyprland/workspaces",
+            "custom/dot",
+            "custom/basilk",
+            "custom/dot",
+            "battery"
+        ],
+
+        "modules-right":
+        [
+            "tray",
+            "custom/dot",
+            "custom/i3status"
+        ],
+
+        "modules-center":
+        [
+            "custom/spotify"
+        ],
+
+        "hyprland/workspaces": {
+            "disable-scroll": true,
+            "all-outputs": false,
+            "format": "{name}"
+        },
+        "hyprland/window": {
+            "max-length": 60,
+            "format": "{}",
+            "rewrite": {
+                "":"empty"
+            },
+            "separate-outputs": true
+        },
+        "custom/dot":{
+            "format": " ",
+            "interval": 100
+        },
+        "custom/spotify": {
+            "exec": "/home/stanik/scripts/waybar/music_panel.sh",
+            "exec-if": "pgrep mpv || pgrep spotify",
+            "format": "{text}",
+            "states": {
+                "playing": "Playing",
+                "paused": "Paused",
+                "stopped": "Stopped"
+            },
+            "on-click": "playerctl -p mpv play-pause || playerctl -p spotify play-pause",
+            "on-scroll-up": "playerctl next",
+            "on-scroll-down": "playerctl previous",
+            "return-type": "json",
+            "interval": 1
+        },
+        "custom/vis": {
+            "exec": "/home/stanik/scripts/someRandomThing/loadingBar/v2/a.out",
+            "format": "{}",
+            "interval": 1
+        },
+        "custom/basilk": {
+            "exec": "/home/stanik/scripts/waybar/basilk_panel.sh",
+            "format": "{}",
+            "on-click": "kitty -e basilk"
+        },
+        "custom/basilk_pe": {
+            "exec": "/home/stanik/scripts/waybar/basilk_pe_panel.sh",
+            "format": "{}",
+            "on-click": "kitty -e basilk_pe"
+        },
+        "custom/cava": {
+            "format": "{}",
+            "exec": "~/.config/waybar/bin/waybarcava.py braille",
+            "return-type": "json",
+            "restart-interval": 0,
+            "max-length": 30,
+            "tooltip": false,
+            "signal": 1,
+            "on-click": "playerctl play-pause",
+            "on-click-right": "playerctl next",
+            "on-scroll-up": "playerctl position 5+",
+            "on-scroll-down": "playerctl position 5-"
+        },
+        "custom/i3status": {
+            "exec": "~/scripts/bash/i3statusWrapper.sh",
+            "return-type": "json",
+        },
+        "disk": {
+            "interval": 30,
+            "format": "{percentage_used}%",
+            "path": "/"
+        },
+        "sway/mode": {
+            "format": "<span style=\"italic\">{}</span>"
+        },
+        "tray": {
+            "spacing": 8,
+            "format": "::"
+        },
+        "clock#date": {
+            "timezone": "Europe/Moscow",
+            "format":"{:%d %b}",
+            "interval": 1,
+            "on-click": "zenity --calendar"
+        },
+        "clock": {
+            "timezone": "Europe/Moscow",
+            "format":"{:%H:%M:%S}",
+            "interval": 1,
+            "on-click": "zenity --calendar"
+        },
+        "cpu": {
+            "interval": 1,
+            "format": "{usage}%",
+            "states": {
+                "warning": 50,
+                "critical": 80
+            }
+        },
+        "temperature": {
+            "critical-threshold": 80,
+            "format-critical": "{temperatureC}°C",
+            "format": "{temperatureC}°C"
+        },
+        "battery": {
+            "format": "{icon} {capacity}% - {time}",
+            "format-icons": [" ", " ", " ", " ", " "],
+            "format-time": "{H}h{M}m",
+            "format-charging": "{icon} {capacity}% - {time}",
+            "format-full": "",
+            "interval": 10,
+            "states": {
+                "warning": 25,
+                "critical": 10
+            },
+            "tooltip": false,
+            "on-click": "2"
+        },
+        "memory": {
+            "interval": 1,
+            "format": "{used:}M",
+            "states": {
+                "warning": 75,
+                "critical": 90
+            }
+        },
+        "network": {
+            "format-wifi": "W ({signalStrength}%)",
+            "format-ethernet": "E",
+            "format-linked": "{{ifname} (No IP)",
+            "format-disconnected": "D",
+            "format-alt": "{ifname}: {ipaddr}/{cidr}"
+        },
+        "pulseaudio/slider": {
+            "min": 0,
+            "max": 100,
+            "orientation": "horizontal"
+        },
+        "pulseaudio": {
+            "scroll-step": 5,
+            "format": "{volume}%",
+            "format-muted": "M",
+            "format-icons": {
+                "default": ["", "", ""]
+            },
+            "on-click": "pavucontrol",
+            "on-click-middle": "pamixer -t",
+            "states": {
+                "normal": 80,
+                "warning": 99,
+                "critical": 999
+            }
+        },
+}
