@@ -1,3 +1,8 @@
+local accept = { "accept", "fallback" };
+local prev = { "select_prev", "fallback" };
+local next = { "select_next", "fallback" };
+
+
 return {
     'saghen/blink.cmp',
     -- optional: provides snippets for the snippet source
@@ -25,11 +30,16 @@ return {
         -- C-k: Toggle signature help (if signature.enabled = true)
         --
         -- See :h blink-cmp-config-keymap for defining your own keymap
+        --
+
         keymap = {
             preset = "none",
 
-            ["<C-j>"] = { "select_next", "fallback" },
-            ["<C-k>"] = { "select_prev", "fallback" },
+            ["<Down>"] = next,
+            ["<C-j>"] = next,
+
+            ["<Up>"] = prev,
+            ["<C-k>"] = prev,
 
             ["<C-u>"] = { "scroll_documentation_up", "fallback" },
             ["<C-d>"] = { "scroll_documentation_down", "fallback" },
@@ -38,7 +48,8 @@ return {
 
             ["<C-e>"] = { "hide", "fallback" },
 
-            ["<CR>"] = { "accept", "fallback" },
+            ["<CR>"] = accept,
+            ["<Tab>"] = accept,
         },
 
         appearance = {
@@ -61,7 +72,9 @@ return {
         -- when the Rust fuzzy matcher is not available, by using `implementation = "prefer_rust"`
         --
         -- See the fuzzy documentation for more information
-        fuzzy = { implementation = "prefer_rust_with_warning" }
+        fuzzy = { implementation = "prefer_rust_with_warning" },
+
+        cmdline = {}
     },
     opts_extend = { "sources.default" }
 }

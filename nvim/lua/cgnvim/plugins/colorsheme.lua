@@ -20,6 +20,7 @@ return {
                 strings = false,
                 parameter = false,
             },
+            invert_selection = false,
         })
 
         vim.cmd("let g:alduin_Shout_Become_Ethereal = 1")

@@ -136,7 +136,6 @@ map("v", "<C-v>", 'c<ESC>"+p')
 map("i", "<C-v>", "<C-r><C-o>+")
 
 -- Delete word under cursor, select all, toggle hlsearch
-map("n", "<A-w>", "diw")
 map("n", "<C-a>", "ggVG")
 map("n", "<F4>", ":set hlsearch!<CR>")
 

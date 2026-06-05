@@ -113,9 +113,9 @@ rules = [
     { mime = "application/x-rar",           fg = "#af875f" },
 
     # Directories
-    { name = "*/", fg = "#af8787" },  # Cyan
+    { mime = "*/", fg = "#af8787" },  # Cyan
 
     # Fallback (files)
-    { name = "*", fg = "#dfdfaf" }  # Normal fg
+    { mime = "*", fg = "#dfdfaf" }  # Normal fg
 ]
 # : }}}

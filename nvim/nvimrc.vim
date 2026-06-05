@@ -15,8 +15,9 @@ vmap <C-x> "+c
 vmap <C-v> c<ESC>"+p
 imap <C-v> <C-r><C-o>+
 
-" Select word under cursor (doesn't properly work)
-"nnoremap <C-w>      viw
+" delete word (backspace or h no matter)
+nnoremap <C-h> <C-w>
+
 " Delete word under cursor
 nnoremap <A-w>      diw
 nnoremap <C-a>      ggVG

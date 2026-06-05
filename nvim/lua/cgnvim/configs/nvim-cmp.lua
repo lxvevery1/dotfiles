@@ -45,11 +45,11 @@ return {
         end,
     },
     mapping = cmp.mapping.preset.insert({
-        ["<C-j>"] = cmp.mapping.select_next_item(), -- go (n)ext
-        ["<C-k>"] = cmp.mapping.select_prev_item(), -- go (p)revious
+        ["<Down>"] = cmp.mapping.select_next_item(), -- go (n)ext
+        ["<Up>"] = cmp.mapping.select_prev_item(), -- go (p)revious
         ["<C-u>"] = cmp.mapping.scroll_docs(-4),    -- go (u)p
         ["<C-d>"] = cmp.mapping.scroll_docs(4),     -- go (d)own
-        ["<C-Space>"] = cmp.mapping.complete(),
+        ["<Tab>"] = cmp.mapping.complete(),
         ["<C-e>"] = cmp.mapping.close(),            -- (e)xit
         ["<CR>"] = cmp.mapping.confirm({
             behavior = cmp.ConfirmBehavior.Insert,

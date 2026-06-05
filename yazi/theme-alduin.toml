@@ -1,7 +1,7 @@
 # vim:fileencoding=utf-8:foldmethod=marker
 
 # : Manager {{{
-[manager]
+[mgr]
 cwd = { fg = "#87afaf" }  # Cyan from Rusty Alduin
 
 # Hovered

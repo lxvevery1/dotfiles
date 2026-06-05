@@ -50,7 +50,7 @@
             "separate-outputs": true
         },
         "custom/dot":{
-            "format": " | ",
+            "format": " ",
             "interval": 100
         },
         "custom/spotify": {
@@ -149,7 +149,7 @@
         },
         "memory": {
             "interval": 1,
-            "format": "{used:}G",
+            "format": "{used:}M",
             "states": {
                 "warning": 75,
                 "critical": 90

@@ -100,7 +100,7 @@ return {
         "dotnet",
         "/home/stanik/.local/share/roslyn/content/LanguageServer/linux-x64/Microsoft.CodeAnalysis.LanguageServer.dll",
         "--logLevel=Error", -- Critical|Debug|Error|Information|None|Trace|Warning
-        "--extensionLogDirectory=" .. vim.fs.dirname(vim.lsp.get_log_path()),
+        "--extensionLogDirectory=" .. vim.fs.dirname(vim.lsp.log.get_filename()),
         "--stdio",
     },
     filetypes = { "cs" },
